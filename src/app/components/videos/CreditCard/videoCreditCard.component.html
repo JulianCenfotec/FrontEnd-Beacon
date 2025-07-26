@@ -1,0 +1,44 @@
+<div class="row configuration justify-content-evenly p-5 px-5">
+    <div class=" header shadow-sm mt-2 mb-5 p-4">
+        <h1 class="h1">Tu tarjeta de crédito ideal</h1>
+        <span class="rectangle mt-2"></span>
+        <p>
+            Obtendras una recomendación personalizada que te ayudara a escoger una tarjeta de credito que se adapte a ti.
+        </p>
+    </div>
+    <div class=" display-container pt-4 shadow-sm mb-5 ">
+        <div class="px-5">
+            <video #videoElement width=100%  autoplay [muted]="true" poster="https://i.imgur.com/94J6NqB.png">
+                <source src="https://i.imgur.com/1O4i0lq.mp4" type="video/mp4" preload="metadata">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div id="btnContainer" class="gap-2 px-5 mt-3 ">
+            <button id="miBoton" (click)="seekToTime(0)"class="btn tertiary">
+                <i class="fa-solid fa-rotate-right m-0 text-white"></i>
+            </button>
+            @for (option of currentChapter.options;track $index){
+                <button (click)="changeChapter(option.ChapterId)" class="btn primary">{{ option.name }}</button>
+            }
+        </div>
+        <div class="option-container px-5 my-3 ">
+            <h4 class="border-line pb-2">Descripción General</h4>
+            <br>
+            <h2>{{currentChapter.name}}</h2>
+            <p>{{currentChapter.description}}</p>
+        </div>
+    </div>
+    <div class=" selection-container  pt-4 p-2 mb-5 shadow-sm">
+            <h4>Diagrama de seleccion</h4>
+            <ol class="p-0 d-flex-column ">
+                @for (option of currentChapter.pastOptions;track $index){
+                    <div (click)="changeChapter(option.ChapterId)" class="chapterContainer mb-2">
+                        <div class="chapter">
+                            <li class="chapterTitle">{{ getChapterById(option.ChapterId)?.name}}</li>
+                        </div>
+                    </div>
+                }
+            </ol>
+        </div>
+
+</div>

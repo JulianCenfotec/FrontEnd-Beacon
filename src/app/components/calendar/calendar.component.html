@@ -1,0 +1,82 @@
+<section class="content-display">
+  <div class="container-display shadow-sm mb-4">
+    <div class="container-fluid">
+      <div class="text-container">
+        <h1>Planificador Financiero</h1>
+        <span class="rectangle"></span>
+        <p>
+          Organiza y visualiza tus actividades financieras en nuestro calendario
+          interactivo. Registra y sigue tus ingresos, gastos y eventos
+          importantes para mantener un control preciso y efectivo de tus
+          finanzas.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-display shadow-sm mb-3">
+    <div class="row">
+      <div class="col-lg-4 col-12 mb-3 mb-md-0">
+        <div class="rounded bg-white mb-2">
+          <div class="d-flex justify-content-between align-items-center">
+
+            <div>
+              <span class="h5 mb-3">
+                Mis calendarios
+              </span>
+            </div>
+
+            <div class="calendar-option ms-1" (click)="handleCreateCalendar()" ngbTooltip="Crear nuevo calendario"
+              placement="top">
+              <div class="d-flex justify-content-center align-items-center">
+                <i class="fas fa-plus fa-fw"></i>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="mt-3">
+            <div class="alert alert-warning my-1" *ngIf="calendars.length <= 0">
+              No hay calendarios disponibles
+            </div>
+            <div class="d-flex flex-column">
+              <label *ngFor="let calendar of calendars"
+                class="alert alert-light form-check d-flex align-items-center my-1">
+                <input type="checkbox" class="form-check-input custom-checkbox"
+                  (change)="handleCalendarActivate(calendar, $event)"
+                  [checked]="activeCalendarIds.includes(calendar.id)" id="calendar-{{ calendar.id }}" />
+                <label class="form-check label d-flex justify-content-between align-items-center w-100" for="calendar-{{ calendar.id }}">
+                  <div>
+                    <span>
+                      {{ calendar.nombre }}
+                    </span>
+                  </div>
+                  <div class="calendar-option ms-1" (click)="handleCalendarDeletion(calendar, $event)" ngbTooltip="Eliminar calendario" placement="top">
+                    <div class="d-flex justify-content-center align-items-center">
+                      <i class="fas fa-trash-alt fa-fw"></i>
+                    </div>
+                  </div>
+                </label>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div #sidebar class="sidebar rounded mb-1">
+          <div class="d-flex justify-content-between align-items-center">
+            <span class="h5 mb-3">Mis plantillas</span>
+          </div>
+          <div class="rounded py-2">
+            <app-calendar-plan-list [openCreateEventPreview]="openCreateEventPreviewAsProperty" />
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-8 col-12 user-select-none">
+        <div class="calendar-container">
+          <full-calendar [options]="calendarOptions"></full-calendar>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

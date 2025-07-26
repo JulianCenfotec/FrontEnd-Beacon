@@ -1,0 +1,148 @@
+<form [formGroup]="form" (ngSubmit)="calculate()">
+  <section class="content-display configuration">
+    <div class="container-display shadow-sm">
+      <div class="container-fluid">
+        <div class="text-container">
+          <h2>Calculadoras de Créditos</h2>
+          <p>
+            Selecciona una entidad financiera, introduce el monto del crédito y
+            elige el plazo en meses. ¡Empieza a gestionar tu crédito hoy mismo!
+          </p>
+          <h3>Crédito financiero</h3>
+          <div class="form-control-container flex-wrap">
+            <div class="form-control-custom col-lg-6">
+              <div class="dashboard-select-wrapper">
+                <label for="nombre">Moneda</label>
+                <select class="form-control">
+                  <option value="CRC">Colones (CRC)</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-control-custom col-lg-6">
+              <a
+                type="button"
+                (click)="openBankListModal()"
+                class="banks-access text-decoration-none w-100"
+              >
+                <label for="bank" class="results">{{ bankName }}</label>
+                <div
+                  id="bank"
+                  class="form-control results"
+                  [ngClass]="{ error: bank?.touched && bank?.invalid }"
+                >
+                  <span>Tasa de interés ({{ bankInterestRate }}%)</span>
+                </div>
+                <p class="error-message" *ngIf="bank?.touched && bank?.invalid">
+                  Por favor, seleccione un banco.
+                </p>
+              </a>
+            </div>
+            <div class="form-control-custom col-lg-6">
+              <label for="amount">Monto</label>
+              <input
+                id="amount"
+                name="amount"
+                type="text"
+                class="form-control"
+                placeholder="0.00"
+                formControlName="amount"
+                [ngClass]="{ error: amount?.touched && amount?.invalid }"
+                (input)="onAmountInput($event)"
+              />
+              <p
+                class="error-message"
+                *ngIf="amount?.touched && amount?.invalid"
+              >
+                <span *ngIf="amount?.errors?.['required']">
+                  Por favor, ingrese un monto.
+                </span>
+                <span *ngIf="amount?.errors?.['min']">
+                  El monto debe ser mayor a cero.
+                </span>
+              </p>
+            </div>
+            <div class="form-control-custom col-lg-6">
+              <label for="months">Meses</label>
+              <input
+                id="months"
+                name="months"
+                type="number"
+                class="form-control"
+                placeholder="0"
+                formControlName="months"
+                [ngClass]="{ error: months?.touched && months?.invalid }"
+              />
+              <p
+                class="error-message"
+                *ngIf="months?.touched && months?.invalid"
+              >
+                <span *ngIf="months?.errors?.['required']">
+                  Por favor, ingrese un plazo en meses.
+                </span>
+                <span *ngIf="months?.errors?.['min']">
+                  El plazo debe ser mayor a cero.
+                </span>
+              </p>
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <button
+              type="submit"
+              class="btn btn-primary calculate w-100"
+              [disabled]="form.invalid"
+            >
+              Calcular
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</form>
+
+<section class="content-display configuration mb-4">
+  <div class="container-display shadow-sm">
+    <div class="container-fluid">
+      <div class="text-container">
+        <h2>Visualización de Resultados</h2>
+        <p>
+          Una vez ingresados tus datos, la calculadora desglosa y muestra
+          claramente el monto bruto, el neto y los impuestos retenidos. Esta
+          información detallada te ayuda a entender mejor tus finanzas y
+          planificar con precisión tus ahorros futuros.
+        </p>
+        <p class="fw-bold">
+          Tasa de Interés:<span class="fw-normal">
+            {{ bankInterestRate }}%</span
+          >
+        </p>
+        <p>
+          <small
+            >* El interés mostrado es un promedio y puede variar al momento de
+            la solicitud, dependiendo de los días de plazo y de posibles ofertas
+            que la entidad financiera pueda ofrecer.</small
+          >
+        </p>
+        <h3>Préstamo de Unificación de Deudas</h3>
+        <div class="form-control-container flex-wrap">
+          <div class="form-control-custom col-lg-6">
+            <label class="results" for="grossInterest"
+              >Pago Mensual Consolidado</label
+            >
+            <div id="grossInterest" class="form-control results">
+              <span>{{ monthlyPayment | number : "1.2-2" }} CRC</span>
+            </div>
+          </div>
+          <div class="form-control-custom col-lg-6">
+            <label class="results" for="withholdingInterest"
+              >Total de Intereses Pagados</label
+            >
+            <div id="withholdingInterest" class="form-control results">
+              <span>{{ totalInterestPaid | number : "1.2-2" }} CRC</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

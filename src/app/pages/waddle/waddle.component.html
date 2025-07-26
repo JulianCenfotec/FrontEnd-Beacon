@@ -1,0 +1,248 @@
+<div class="waddle">
+  <div class="banner">
+    <nav #navbarNav id="navbar" class="navbar navbar-expand-lg navbar-light fixed-top">
+      <div class="container-fluid max-w-1440">
+        <a class="navbar-brand" data-fragment="home" (click)="onNavItemClick()">
+          <img src="../../../assets/img/waddle-logo.svg" alt="Logo de Waddle." />
+        </a>
+        <a #btnMenu id="btnMenu" class="menu collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" (click)="toggleMenu()">
+          <span class="navbar-toggler">
+            <div id="btnMenu" class="menu">
+              <svg width="40" height="40" viewBox="0 0 100 100">
+                <path class="line color-wh top" d="M 20,30 H 80"></path>
+                <path class="line color-wh middle" d="M 20,50 H 80"></path>
+                <path class="line color-wh bottom" d="M 20,70 H 80"></path>
+              </svg>
+            </div>
+          </span>
+        </a>
+        <div #navbarCollapse class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" data-fragment="home" (click)="onNavItemClick()">Inicio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-fragment="about" (click)="onNavItemClick()">Acerca de</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-fragment="services" (click)="onNavItemClick()">Servicios</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-fragment="team" (click)="onNavItemClick()">Equipo</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-fragment="projects" (click)="onNavItemClick()">Proyectos</a>
+            </li>
+          </ul>          
+        </div>
+      </div>
+    </nav>
+
+    <div id="home" class="home h-100 d-flex flex-column justify-content-center align-items-start text-white">
+      <div class="container-fluid max-w-1440">
+        <h1 class="aquire">Avanzando juntos hacia el éxito</h1>
+        <p>
+          Estamos comprometidos a ofrecerte soluciones innovadoras que
+          impulsen tus proyectos hacia nuevas alturas. Nuestro equipo de
+          expertos en desarrollo de aplicaciones está aquí para ayudarte a
+          alcanzar tus metas y superar cualquier desafío que enfrentes. ¡No te
+          detengas, sigue adelante con Waddle a tu lado!
+        </p>
+        <a data-fragment="about" class="btn">Descubre más</a>
+      </div>
+    </div>
+  </div>
+
+  <div id="about" class="about-us">
+    <div class="container-fluid max-w-1440">
+      <div class="row justify-content-sm-between">
+        <div class="text-container col-md-7">
+          <h2 class="aquire">Acerca de waddle</h2>
+          <p>
+            Nos apasiona transformar ideas en realidades digitales
+            impactantes. Somos mucho más que una empresa de desarrollo de
+            aplicaciones; somos tus socios en la travesía hacia la excelencia
+            digital. Desde el diseño conceptual hasta la implementación final,
+            ofrecemos soluciones integrales que abarcan el desarrollo de
+            software, la consultoría estratégica y la experiencia del usuario.
+            Nuestro enfoque centrado en el cliente y nuestra obsesión por la
+            calidad nos distinguen en el mercado.
+          </p>
+        </div>
+        <div class="col-md-5">
+          <img src="../../../assets/img/about-cube.svg" alt="Un cubo que contiene partes del logotipo de Waddle." />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="services" class="service">
+    <div class="container-fluid max-w-1440">
+      <div class="row justify-content-center text-center pb-4">
+        <div class="col-12">
+          <h2 class="aquire">Nuestros Servicios</h2>
+          <p>Explora la innovación con nuestros servicios. Desde desarrollo de aplicaciones a medida hasta consultoría
+            estratégica y diseño de experiencia de usuario, ofrecemos soluciones integrales para impulsar tu éxito
+            digital. Con un enfoque centrado en el cliente y un equipo de expertos apasionados, estamos listos para
+            llevar tus proyectos al siguiente nivel. Descubre cómo podemos convertir tus ideas en realidad digital.</p>
+        </div>
+      </div>
+      <div class="cards-container">
+        <div class="serv-card">
+          <div class="pb-2">
+            <img src="../../../assets/icons/rocket-icon.svg" alt="Icono de un cohete">
+            <h3>Desarrollo de Aplicaciones</h3>
+          </div>
+          <p>Nuestro equipo de desarrollo de aplicaciones se especializa en crear soluciones personalizadas que se
+            ajusten a tus necesidades. Ya sea una app móvil o software empresarial, estamos aquí para convertir tus
+            ideas en realidad digital.</p>
+        </div>
+        <div class="serv-card">
+          <div class="pb-2">
+            <img src="../../../assets/icons/pen-icon.svg" alt="Icono de un bolígrafo">
+            <h3>Diseño UI/UX</h3>
+          </div>
+          <p>Nuestro equipo de diseño UI/UX crea interfaces intuitivas y visualmente atractivas para una experiencia de
+            usuario satisfactoria. Cada detalle se cuida meticulosamente para que tu aplicación funcione óptimamente.
+          </p>
+        </div>
+        <div class="serv-card">
+          <div class="pb-2">
+            <img src="../../../assets/icons/support-icon.svg" alt="Icono de un signo de interrogación">
+            <h3>Consultoría</h3>
+          </div>
+          <p>Nuestro equipo de consultores trabaja contigo para identificar necesidades y desarrollar estrategias
+            personalizadas. Desde la planificación hasta la implementación, somos tu socio en el éxito digital.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="team" class="carousel our-team">
+    <div class="container-fluid max-w-1440">
+      <div class="row">
+        <div class="text-container col-md-3">
+          <h2 class="aquire">Nuestro equipo</h2>
+          <p>
+            ¡Conoce al increíble equipo detrás de Waddle! Descubre las mentes
+            creativas que hacen realidad tus sueños digitales.
+          </p>
+          <div class="carousel-controls">
+            <button class="arrow left-arrow" data-bs-target="#team-carousel" data-bs-slide="prev">
+              &#10094;
+            </button>
+            <button class="arrow right-arrow" data-bs-target="#team-carousel" data-bs-slide="next">
+              &#10095;
+            </button>
+          </div>
+        </div>
+  
+        <div class="col-md-9">
+          <div id="team-carousel" class="carousel slide pointer-event" data-bs-ride="carousel">
+            <div class="carousel-inner text-center">
+              <ng-container *ngFor="let group of carouselGroups; let i = index">
+                <div class="carousel-item" [class.active]="i === 0">
+                  <div class="row">
+                    <ng-container *ngFor="let item of group">
+                      <div class="team-card col-12 col-sm-6 col-md-4">
+                        <img [src]="item.image" class="d-block" [alt]="item.title">
+                        <h3>{{ item.title }}</h3>
+                        <p>{{ item.description1 }}</p>
+                        <p>{{ item.description2 }}</p>
+                      </div>
+                    </ng-container>
+                  </div>
+                </div>
+              </ng-container>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+  <div id="projects" class="project">
+    <div class="container-fluid max-w-1440">
+      <div class="row justify-content-sm-between align-items-center">
+        <div class="text-container col-12 col-md-6">
+          <h2 class="aquire">¡Nuevo proyecto! <br /> Reinventa tus Finanzas</h2>
+          <p>
+            Estamos presentando Beacon una aplicación para enseñar educación
+            financiera de manera intuitiva, gráfica y real, para que
+            garantices un futuro económico estable.
+          </p>
+        </div>
+
+        <div class="col-12 col-md-6 d-flex align-items-center">
+          <div class="w-100 text-center">
+            <a [routerLink]="'/beacon'" (click)="goTo()" class="btn">Visitar Beacon</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer mt-auto pt-5">
+    <div class="container-fluid max-w-1440">
+      <div class="footer-container">
+        <div class="mb-3">
+          <img src="../../../assets/img/waddle-logo.svg" alt="Logo" />
+        </div>
+        <div class="row">
+          <div class="col-sm-6 col-md-3">
+            <div>
+              <h3 class="aquire">Innovación</h3>
+              <p>Con las ultimas tecnologías.</p>
+              <h3 class="aquire">Creatividad</h3>
+              <p>Sin limites.</p>
+              <h3 class="aquire">Iniciativa</h3>
+              <p>Para garantizar el cambio.</p>
+            </div>
+          </div>
+          <div class="col-sm-6 col-md-3">
+            <h3 class="aquire">Servicios</h3>
+            <ul>
+              <li><p>Desarrollo de Aplicaciones</p></li>
+              <li><p>Diseño UI/UX</p></li>
+              <li><p>Consultoría</p></li>
+            </ul>
+          </div>
+          <div class="col-sm-6 col-md-3">
+            <h3 class="aquire">Opciones</h3>
+            <div class="row">
+              <div class="col-6">
+                <ul class="list-unstyled">
+                  <li><a data-fragment="home">Inicio</a></li>
+                  <li><a data-fragment="about">Acerca de</a></li>
+                  <li><a data-fragment="team">Equipo</a></li>
+                </ul>
+              </div>
+              <div class="col-6">
+                <ul class="list-unstyled">
+                  <li><a data-fragment="services">Servicios</a></li>
+                  <li><a data-fragment="projects">Novedades</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6 col-md-3">
+            <h3 class="aquire">Contacto</h3>
+            <ul>
+              <li>+506 2257 8465</li>
+              <li>San José, Costa Rica</li>
+              <li>
+                <a href="mailto:contact@waddle.co.cr">contact&#64;waddle.co.cr</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-additional">
+          <div class="col-reserved text-center text-md-left">
+            © Waddle. Todos los derechos reservados.
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>

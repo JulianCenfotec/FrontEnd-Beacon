@@ -1,0 +1,75 @@
+/* Help Center */
+
+@media screen and (min-width: 1px) {
+  .beacon .help-center {
+    background-color: #f5f5f5;
+    height: 100vh;
+  }
+
+  .beacon .help-center .banner {
+    margin: auto;
+    display: flex;
+    align-items: center;
+  }
+
+  .beacon .help-center h1 {
+    font-weight: bold;
+    font-size: 48px;
+    color: #343434;
+    margin-bottom: 10px;
+  }
+
+  .beacon .help-center p {
+    color: #343434;
+    margin-bottom: 10px;
+  }
+
+  .beacon .help-center img {
+    max-width: 350px;
+    width: 70%;
+  }
+
+  .help-sidebar {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 102px;
+    height: calc(100vh - 20px);
+    overflow-y: auto;
+  }
+
+  .help-sidebar .nav-link {
+    color: #343434;
+    font-weight: bold;
+    transition: color 0.3s;
+  }
+
+  .help-sidebar .nav-link:hover {
+    color: #62ceab;
+    text-decoration: none;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .beacon .help-center h1 {
+    margin: auto;
+    max-width: 745px;
+  }
+}
+
+@media screen and (max-width: 991.9px) {
+  .beacon .help-center .container-fluid {
+    padding: 2em;
+    margin-top: 15%;
+  }
+
+  .beacon .help-center h1 {
+    font-weight: bold;
+    font-size: 28px;
+  }
+}
+
+@media screen and (min-width: 1364px) {
+  .beacon .help-center .btn {
+    width: 25%;
+  }
+}

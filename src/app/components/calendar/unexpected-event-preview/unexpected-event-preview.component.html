@@ -1,0 +1,44 @@
+<div class="modal-header">
+	<h5 class="modal-title">Crear nuevo imprevisto</h5>
+	<button type="button" class="btn-close" (click)="close()" aria-label="Close"></button>
+  </div>
+  <article class="modal-body beacon">
+	<form [formGroup]="formDirective">
+	  <div class="form-group">
+		<label for="calendario">Seleccione un calendario</label>
+		<select id="calendario" class="form-control" formControlName="calendario">
+		  <option *ngFor="let calendario of calendarios" [value]="calendario.id">{{ calendario.nombre }}</option>
+		</select>
+	  </div>
+	  <div class="form-group mt-3">
+		<label for="nombre">Nombre de imprevisto</label>
+		<input type="text" id="nombre" class="form-control" formControlName="nombre">
+	  </div>
+	  <div class="form-group mt-3">
+		<label for="monto">Monto</label>
+		<input type="number" id="monto" class="form-control" formControlName="monto">
+	  </div>
+	  <div class="form-group mt-3">
+		<label for="tipo">Tipo</label>
+		<select id="tipo" class="form-control" formControlName="tipo">
+		  <option value="ingreso">Ingreso</option>
+		  <option value="gasto">Gasto</option>
+		</select>
+	  </div>
+	  <div class="form-group mt-3">
+		<label for="startDate">Fecha de inicio</label>
+		<input type="date" id="startDate" class="form-control" formControlName="startDate">
+	  </div>
+	  <div class="d-flex flex-row-reverse mt-3">
+		<button type="button" class="btn primary rounded text-white me-3 my-1" [disabled]="formDirective.invalid" (click)="onSubmit()">
+		  <i class="fas fa-calendar-alt fa-fw me-2 text-white"></i>
+		  <span>Crear imprevisto</span>
+		</button>
+		<button type="button" class="btn primary rounded bg-danger text-white me-3 my-1" (click)="close()">
+		  <i class="fas fa-times fa-fw me-2 text-white"></i>
+		  <span>Cancelar</span>
+		</button>
+	  </div>
+	</form>
+  </article>
+  

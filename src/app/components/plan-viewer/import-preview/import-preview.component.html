@@ -1,0 +1,113 @@
+<div class="modal-header">
+	<h5 class="modal-title">Importar plantilla desde {{ plan.titulo }}</h5>
+	<button type="button" class="btn-close" (click)="close()" aria-label="Close"></button>
+</div>
+<div class="modal-body">
+	<form [formGroup]="planForm" class="configuration beacon" (ngSubmit)="onSubmit()">
+		<div class="form-control-custom rounded w-100 mb-3">
+			<label for="titulo" class="form-label">Título</label>
+			<input id="titulo" class="form-control" formControlName="titulo">
+			<div *ngIf="planForm.get('titulo')?.hasError('required') && planForm.get('titulo')?.touched"
+				class="text-danger">
+				El título es requerido.
+			</div>
+		</div>
+		<div class="form-control-custom rounded w-100 mb-3">
+			<label for="descripcion" class="form-label">Descripción</label>
+			<textarea id="descripcion" class="form-control" formControlName="descripcion"></textarea>
+		</div>
+
+		<div class="flex-fill custom-select-wrapper">
+			<label for="periodo">Frecuencia</label>
+			<select formControlName="periodo" class="form-control">
+				<option *ngFor="let periodo of periodos" [value]="periodo">
+					{{ periodo.charAt(0).toUpperCase() + periodo.slice(1).toLowerCase() }}
+				</option>
+			</select>
+		</div>
+
+		<div class="form-check mb-3">
+			<input id="recurrente" class="form-check-input custom-checkbox" type="checkbox"
+				formControlName="recurrente">
+			<label for="recurrente" class="form-check-label">Recurrente</label>
+		</div>
+
+		<div formArrayName="ingresos" class="border mb-3 p-2">
+			<h6>Ingresos</h6>
+			<div *ngFor="let ingreso of ingresos.controls; let i = index" [formGroupName]="i" class="mb-2">
+				<div class="form-control-custom rounded w-100 mb-2">
+					<label class="form-label">Nombre</label>
+					<input class="form-control" formControlName="nombre">
+					<div *ngIf="ingreso.get('nombre')?.hasError('required') && ingreso.get('nombre')?.touched"
+						class="text-danger">
+						El nombre es requerido.
+					</div>
+				</div>
+				<div class="form-control-custom rounded w-100 mb-2">
+					<label class="form-label">Monto</label>
+					<input class="form-control" type="number" formControlName="monto" (change)="updateMonto()">
+					<div *ngIf="ingreso.get('monto')?.hasError('required') && ingreso.get('monto')?.touched"
+						class="text-danger">
+						El monto es requerido.
+					</div>
+					<div *ngIf="ingreso.get('monto')?.hasError('min') && ingreso.get('monto')?.touched"
+						class="text-danger">
+						El monto debe ser al menos 1.
+					</div>
+					<div *ngIf="ingreso.get('monto')?.hasError('invalid')" class="text-danger">
+						El monto es inválido.
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div formArrayName="gastos" class="border mb-3 p-2">
+			<h6>Gastos</h6>
+			<div *ngFor="let gasto of gastos.controls; let i = index" [formGroupName]="i" class="mb-2">
+				<div class="form-control-custom rounded w-100 mb-2">
+					<label class="form-label">Nombre</label>
+					<input class="form-control" formControlName="nombre">
+					<div *ngIf="gasto.get('nombre')?.hasError('required') && gasto.get('nombre')?.touched"
+						class="text-danger">
+						El nombre es requerido.
+					</div>
+				</div>
+				<div class="form-control-custom rounded w-100 mb-2">
+					<label class="form-label">Monto</label>
+					<input class="form-control" type="number" formControlName="monto" (change)="updateMonto()">
+					<div *ngIf="gasto.get('monto')?.hasError('required') && gasto.get('monto')?.touched"
+						class="text-danger">
+						El monto es requerido.
+					</div>
+					<div *ngIf="gasto.get('monto')?.hasError('min') && gasto.get('monto')?.touched" class="text-danger">
+						El monto debe ser al menos 1.
+					</div>
+					<div *ngIf="gasto.get('monto')?.hasError('invalid')" class="text-danger">
+						El monto es inválido.
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="form-control-custom rounded w-100 mb-3">
+			<label for="monto" class="fc-label-disabled">Monto utilizado</label>
+			<input id="monto" class="form-control" type="number" formControlName="monto" />
+			<div *ngIf="planForm.get('monto')?.hasError('invalid')" class="text-danger">
+				El monto total es inválido. Los ingresos deben ser mayores a los gastos.
+			</div>
+		</div>
+
+		<div class="form-control-custom rounded w-100 mb-3">
+			<label for="saldo" class="fc-label-disabled">Saldo restante</label>
+			<input id="saldo" class="form-control" type="number" formControlName="saldo" />
+			<div *ngIf="planForm.get('saldo')?.hasError('invalid')" class="text-danger">
+				El saldo es inválido. Los ingresos deben ser mayores a los gastos.
+			</div>
+		</div>
+
+		<div>
+			<button type="submit" class="btn primary rounded text-white me-3 my-1"
+				[disabled]="!planForm.valid || this.checkFormErrors">Guardar</button>
+		</div>
+	</form>
+</div>

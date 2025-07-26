@@ -1,0 +1,61 @@
+<div class="modal-header">
+  <button type="button" class="btn-close" (click)="closeModal()" aria-label="Close"></button>
+</div>
+<div class="modal-body">
+  <h5 class="modal-title">Seleccione una entidad financiera</h5>
+
+  <p>En este modal se selecciona el interés registrado por el sistema para realizar los cálculos.</p>
+  <div class="mb-3 position-relative">
+    <input type="text" class="form-control search-bar" placeholder="Buscar entidad financiera" (input)="searchBank($event)" />
+    <div class="search-icon">
+      <i class="fa fa-search text-white"></i>
+    </div>
+  </div>
+  
+  <div *ngFor="let bank of filteredBanks" class="bank-item" (click)="selectBank(bank)">
+    <div class="d-flex justify-content-between align-items-center bank-card mb-2 p-4">
+      <div>
+        <span class="fw-bold">{{ bank.nombre }}</span>
+        <span class="text-muted d-block">
+          Tasa de Interés (
+          <span *ngIf="calculatorType === 'ahorro'">{{ bank.tasaAhorro }}%</span>
+          <span *ngIf="calculatorType === 'unificacion'">{{ bank.tasaUnificacion }}%</span>
+          <span *ngIf="calculatorType === 'credito'">{{ bank.tasaCredito }}%</span>
+          )
+        </span>
+      </div>
+      <i class="fa-solid fa-chevron-right"></i>
+    </div>
+  </div>
+
+  <hr>
+
+  <h5 class="modal-title">Utilice una tasa de interés personalizada</h5>
+  <p>Ingrese su propia tasa de interés para obtener cálculos precisos y adaptados.</p>
+
+  <div class="configuration beacon dashboard" style="background-color: #FFFFFF;">
+    <form [formGroup]="interestForm" (ngSubmit)="confirmSelection()">
+      <div class="form-control-custom">
+        <label for="customInterest" class="form-label">Tasa de Interés Personalizada (%)</label>
+        <input
+          type="text"
+          id="customInterest"
+          class="form-control"
+          placeholder="Ingrese su interés personalizado"
+          formControlName="customInterest"
+          [ngClass]="{'error': customInterestControl.touched && customInterestControl.errors}"
+          (input)="setCustomInterest($event)"
+        />
+        <p class="error-message d-flex flex-column align-items-start" *ngIf="customInterestControl?.touched && customInterestControl?.errors">
+          <span *ngIf="customInterestControl?.errors?.['required']">Por favor, ingrese una tasa de interés.</span>
+          <span *ngIf="customInterestControl?.errors?.['min']">La tasa de interés debe ser mayor a 0.</span>
+          <span *ngIf="customInterestControl?.errors?.['max']">La tasa de interés no puede ser mayor a 100.</span>
+          <span *ngIf="customInterestControl?.errors?.['pattern']">Por favor, ingrese un valor válido con hasta 2 decimales.</span>
+        </p>
+      </div>
+      <div class="col-sm-3">
+        <button type="submit" class="btn btn-primary calculate w-100" [disabled]="interestForm.invalid">Confirmar</button>
+      </div>
+    </form>
+  </div>
+</div>

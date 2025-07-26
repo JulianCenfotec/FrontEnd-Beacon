@@ -1,0 +1,92 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+.color-ingress {
+  color: #03B9AB;
+}
+
+.color-expense {
+  color: #D91616;
+}
+
+.bg-ingress {
+  background-color: #CDFFFB;
+  padding: 10px;
+  border-radius: 50px;
+}
+
+.bg-expense {
+  background-color: #FFD6D6;
+  padding: 10px;
+  border-radius: 50px;
+}
+
+@media screen and (max-width: 991px) {
+   .custom-view {
+     text-align: center;
+   }
+   .center-chart {
+    justify-content: normal !important;
+  }	
+  .spacing-simbs {
+    margin-top: 2% !important;
+  }
+}
+
+.center-chart {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}	
+
+::-webkit-datetime-edit { padding: 1em; }
+::-webkit-datetime-edit-text { color:transparent;}
+::-webkit-datetime-edit-month-field { color:transparent; }
+::-webkit-datetime-edit-day-field { color:transparent; }
+::-webkit-datetime-edit-year-field { color:transparent; }
+::-webkit-inner-spin-button { display: none; }
+::-webkit-calendar-picker-indicator { font-size: 30px; }
+::-webkit-calendar-picker-indicator { cursor: pointer; }
+::-webkit-calendar-picker-indicator { color: #03B9AB; }
+::-webkit-clear-button { display: none; }
+
+input[type="date"] {
+  border: none;
+  outline: none;
+  background: none;
+  padding: 0;
+  background-size: 20px 20px;
+  background-repeat: no-repeat;
+  background-position: right center;
+  cursor: default;
+}
+
+input[type="date"]:focus {
+  border: none;
+  outline: none;
+  box-shadow: none;
+}
+
+input[type="date"]::-webkit-inner-spin-button,
+input[type="date"]::-webkit-calendar-picker-indicator {
+  border: none;
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+}
+
+.fade-in {
+  animation: fadeInOut 0.5s ease-in-out;
+}
+

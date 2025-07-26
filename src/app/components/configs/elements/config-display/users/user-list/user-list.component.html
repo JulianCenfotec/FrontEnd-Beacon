@@ -1,0 +1,47 @@
+<div class="user-wrapper white-color">
+  <div class="table-container table-responsive table-background gray-color">
+    <table class="table center-text">
+      <thead>
+        <tr>
+          <th scope="col" class="gray-color">Nombre</th>
+          <th scope="col" class="gray-color">Apellido</th>
+          <th scope="col" class="gray-color">Correo Electrónico</th>
+          <th scope="col" class="gray-color">Nombre de Usuario</th>
+          <th scope="col" class="gray-color">Creado</th>
+          <th scope="col" class="gray-color">Actualizado</th>
+          <th class="text-center" scope="col" class="gray-color">Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (item of userList; track item.id) {
+          <ng-container *ngIf="item.id !== profileService.user$().id">
+            <tr class="td-custome-table">
+              <td>{{item.name}}</td>
+              <td>{{item.lastname}}</td>
+              <td>{{item.email | maskEmail}}</td>
+              <td>{{item.displayname}}</td>
+              <td>{{item.createdAt | date: 'dd/MM/yyyy HH:mm'}}</td>
+              <td>{{item.updatedAt | date: 'dd/MM/yyyy HH:mm'}}</td>
+              <td>
+                <div class="d-flex justify-content-evenly align-items-center">
+                  <button type="button" (click)="deleteUser(item, formDelete)" class=" btn btn-danger text-white">
+                      <i class="fa-solid fa-trash text-white m-0"></i>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          </ng-container>
+        }
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<app-modal size="lg" #formDelete>
+  <app-user-delete-form
+  [user]="currentUser" 
+  [action]="'delete'"
+  [title]="'Eliminar Usuario'"
+  >
+</app-user-delete-form>
+</app-modal>

@@ -1,0 +1,102 @@
+<div class="beacon">
+  <app-navbar></app-navbar>
+
+  <section class="help-center bg-light">
+    <div class="banner h-100">
+      <div class="container-fluid max-w-1440">
+        <div class="row d-flex p-5 align-items-center">
+          <div class="col-lg-6 text-center text-md-start">
+            <h1 class="m-1">¡Estamos aquí para ayudar!</h1>
+            <p class="m-1">
+              ¿Tienes alguna pregunta o necesitas asistencia con tus finanzas?
+              En el Centro de Ayuda de Beacon, estamos comprometidos a
+              proporcionarte las respuestas y el soporte que necesitas.
+            </p>
+          </div>
+          <div class="col-lg-6 text-center">
+            <img
+              src="../../../assets/img/help-center.svg"
+              alt="Cuatro personas cooperando para armar un rompecabezas."
+              class="img-fluid"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container my-5">
+      <div class="row">
+
+        <div class="col-lg-3 col-md-4 d-none d-md-block">
+          <div class="sidebar help-sidebar bg-light shadow-sm p-3 h-auto">
+            <ul class="nav flex-column">
+              <li class="nav-item">
+                <a data-fragment="generalFinance" class="nav-link active" role="button">Generalidades de Finanzas</a>
+              </li>
+              <li class="nav-item">
+                <a data-fragment="account" class="nav-link" role="button">Cuenta</a>
+              </li>
+              <li class="nav-item">
+                <a data-fragment="payments" class="nav-link" role="button">Pagos y Cobro</a>
+              </li>
+              <li class="nav-item">
+                <a data-fragment="features" class="nav-link" role="button">Funcionalidades</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-lg-9 col-md-8">
+          <div id="generalFinance" class="bg-light p-5 mb-5 shadow-sm">
+            <h2 class="mb-3">Generalidades de Finanzas</h2>
+            <span class="rectangle"></span>
+            <div class="row">
+              <div class="col-lg-12 mb-3" *ngFor="let item of generalFinances">
+                <h3 class="h5">{{ item.question }}</h3>
+                <p>{{ item.answer }}</p>
+              </div>
+            </div>
+          </div>
+
+          <div id="account" class="bg-light p-5 mb-5 shadow-sm">
+            <h2 class="mb-3">Cuenta</h2>
+            <span class="rectangle"></span>
+            <div class="row">
+              <div class="col-lg-12 mb-3" *ngFor="let item of accountDetails">
+                <h3 class="h5">{{ item.question }}</h3>
+                <p>{{ item.answer }}</p>
+              </div>
+            </div>
+          </div>
+
+          <div id="payments" class="bg-light p-5 mb-5 shadow-sm">
+            <h2 class="mb-3">Pagos y Cobro</h2>
+            <span class="rectangle"></span>
+            <div class="row">
+              <div class="col-lg-12 mb-3" *ngFor="let item of paymentsReceipts">
+                <h3 class="h5">{{ item.question }}</h3>
+                <p>{{ item.answer }}</p>
+              </div>
+            </div>
+          </div>
+
+          <div id="features" class="bg-light p-5 mb-5 shadow-sm">
+            <h2 class="mb-3">Funcionalidades</h2>
+            <span class="rectangle"></span>
+            <div class="row">
+              <div class="col-lg-12 mb-3" *ngFor="let item of featuresInformation">
+                <h3 class="h5">{{ item.question }}</h3>
+                <p>{{ item.answer }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <app-footer></app-footer>
+</div>

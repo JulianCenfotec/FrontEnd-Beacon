@@ -1,0 +1,32 @@
+<section class="content-display pt-5 h-100">
+	<div class="container-display shadow-sm">
+
+		<h1 class="h1">Explorador de Plantillas</h1>
+
+		<span class="rectangle mt-2"></span>
+
+		<p>
+			Descubre una amplia variedad de plantillas diseñadas para optimizar y facilitar tus proyectos. Ya sea para
+			trabajo, estudios o proyectos personales, encuentra la plantilla perfecta que se adapte a tus necesidades.
+		</p>
+
+		<div class="row">
+		<div class="btn-container col-12 col-lg-6 d-flex flex-column flex-lg-row" role="group" aria-label="Configuraciones">
+			@for (route of permittedRoutes; track $index) {
+			@if (route.data && route.data['showInHeading']) {
+			<button type="button" class="btn btn-primary m-2" routerLinkActive="active" routerLink="{{ route.path }}">
+				{{ route.data["name"] }}
+			</button>
+			}
+			}
+		</div>
+		<div class="btn-container col-12 col-lg-6 d-flex flex-column-reverse flex-lg-row-reverse">
+			<button type="button" class="btn btn-primary m-2" routerLink="/beacon/app/template-builder">
+				Crear Plantilla
+			</button>
+			</div>
+	</div>
+</div>
+	
+	<router-outlet></router-outlet>
+</section>

@@ -1,0 +1,97 @@
+<div class="option-container">
+    <h2>Ajustes de la cuenta</h2>
+    <p>Gestionar los datos de tu cuenta.</p>
+    <div class="alert alert-info d-flex align-items-center" role="alert">
+        <i class="fas fa-info-circle mr-2"></i>
+        <span>Si modificas el correo se cerrará tu sesión y deberás iniciar sesión con tu nuevo correo.</span>
+    </div>
+    <h3>Información de la cuenta</h3>
+
+    <div *ngIf="loading" class="position-fixed top-0 start-0 w-100 h-100 d-flex justify-content-center align-items-center bg-light bg-opacity-75" style="z-index: 1000; display: none;">
+        <div class="spinner-border text-primary" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+
+    <form [formGroup]="formAccountSettingsDirective" (ngSubmit)="onSubmit()">
+        <div class="form-control-container">
+            <div class="form-control-custom">
+                <label for="displayname">Nombre en pantalla</label>
+                <input formControlName="displayname"
+                       id="displayname"
+                       name="displayname"
+                       type="text"
+                       class="form-control"
+                       placeholder="Nombre en pantalla"
+                       [ngClass]="{ 'error': displayname.invalid && (displayname.dirty || displayname.touched) }">
+            </div>
+            <div class="form-control-custom">
+                <label for="email">Dirección de correo electrónico</label>
+                <div>
+                    <input formControlName="email"
+                           id="email"
+                           name="email"
+                           type="email"
+                           class="form-control"
+                           placeholder="Dirección de correo electrónico"
+                           [ngClass]="{ 'error': email.invalid && (email.dirty || email.touched) }">
+                </div>
+            </div>
+        </div>
+        <h3>Datos personales</h3>
+        <p>Administra tu nombre e información de contacto. Estos datos personales son privados y no se mostrarán a otros usuarios en la plataforma.</p>
+        <div class="form-control-container">
+            <div class="form-control-custom">
+                <label for="name">Nombre</label>
+                <div>
+                <input formControlName="name"
+                       id="name"
+                       name="name"
+                       type="text"
+                       class="form-control"
+                       placeholder="Nombre"
+                       [ngClass]="{ 'error': name.invalid && (name.dirty || name.touched) }">
+                </div>
+            </div>
+            <div class="form-control-custom">
+                <label for="lastname">Apellido</label>
+                <div>
+                <input formControlName="lastname"
+                       id="lastname"
+                       name="lastname"
+                       type="text"
+                       class="form-control"
+                       placeholder="Apellido"
+                       [ngClass]="{ 'error': lastname.invalid && (lastname.dirty || lastname.touched) }">
+                </div>
+            </div>
+        </div>
+        <div class="btn-container col col-lg-3 mb-3">
+            <button [disabled]="!formAccountSettingsDirective.valid || !formHasChanges"
+                    type="submit" class="btn primary w-100">Guardar cambios</button>
+        </div>
+        <br>
+        <div *ngIf="formAccountSettingsDirective.invalid && (formAccountSettingsDirective.dirty || formAccountSettingsDirective.touched)"
+             class="error-tag mb-4">
+            <h3>Verifique la Información</h3>
+            <span *ngIf="displayname.errors?.['maxlength']" class="text-white">
+                El nombre en pantalla debe tener menos de 50 caracteres.
+            </span>
+            <span *ngIf="email.errors?.['email']" class="text-white">
+                Debe ser un correo electrónico válido.
+            </span>
+            <span *ngIf="displayname.errors?.['required']" class="text-white">
+                El nombre en pantalla es obligatorio.
+            </span>
+            <span *ngIf="email.errors?.['required']" class="text-white">
+                El correo electrónico es obligatorio.
+            </span>
+            <span *ngIf="name.errors?.['required']" class="text-white">
+                El nombre es obligatorio.
+            </span>
+            <span *ngIf="lastname.errors?.['required']" class="text-white">
+                El apellido es obligatorio.
+            </span>
+        </div>
+    </form>
+</div>

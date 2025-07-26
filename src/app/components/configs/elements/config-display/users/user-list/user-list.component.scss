@@ -1,0 +1,28 @@
+$bcn-primary-color: #03B9AB;
+$bcn-black-color: #000000;
+$bcn-white-color: #FFFFFF;
+$bcn-gray-color: #F2F2F2;
+
+.table-background {
+    padding: 15px 40px 15px 40px;
+}
+
+.white-color {
+    background-color: $bcn-white-color;
+}	
+
+.gray-color {
+    background-color: $bcn-gray-color;
+}	
+
+.center-text {
+    text-align: center;
+}
+
+.user-wrapper {
+    padding: 1%;
+}	
+
+.td-custome-table {
+    border: 2em solid white;
+}

@@ -1,0 +1,23 @@
+//Global style sheet
+@import "./navs.scss";
+@import "./footer.scss";
+
+//Style sheet for Waddle
+@import "./waddle/waddle.scss";
+
+//Style sheet for Beacon    
+@import "./beacon/beacon.scss";
+@import "./beacon/dashboard.scss";
+@import "./beacon/calendar.scss";
+
+//Generic style sheet
+@import "./grid.scss";
+@import "./header.scss";
+@import "./search.scss";
+@import "./select2.scss";
+@import "./sidebar.scss";
+@import "./rtl.scss";
+@import "./box-layout.scss";
+@import "../components/print.scss";
+@import "../themes/responsive.scss";
+@import "../components/bookmark.scss"

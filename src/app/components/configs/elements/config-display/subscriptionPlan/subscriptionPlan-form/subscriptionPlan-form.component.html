@@ -1,0 +1,53 @@
+<div class="d-flex align-item-center justify-content-end p-2">
+  <button
+    type="button"
+    data-bs-dismiss="modal"
+    aria-label="Close"
+    class="btn-close"
+    (click)="closeModal()"
+  ></button>
+</div>
+<div class="modal-body px-5">
+  <h5 class="modal-title">{{ title }}</h5>
+  <p>En este formulario se registran los datos del plan de suscripción.</p>
+
+  <div class="configuration beacon dashboard" style="background-color: #ffffff">
+    <form [formGroup]="formRegistroDirective" (ngSubmit)="handleAction()" autocomplete="off">
+      <div class="form-control-container">
+        <div class="form-control-custom mb-3">
+          <label for="titulo" class="form-label">Título</label>
+          <input type="text" id="titulo" class="form-control" placeholder="Título" formControlName="titulo" [ngClass]="{ error: isFieldInvalid('titulo') }" />
+        </div>
+        <div class="form-control-custom mb-3">
+          <label for="descripcion" class="form-label">Descripción</label>
+          <input type="text" id="descripcion" class="form-control" placeholder="Descripción" formControlName="descripcion" [ngClass]="{ error: isFieldInvalid('descripcion') }" />
+        </div>
+      </div>
+      <div class="form-control-container">
+        <div class="form-control-custom mb-3">
+          <label for="precio" class="form-label">Precio</label>
+          <input type="number" id="precio" class="form-control" placeholder="Precio" formControlName="precio" [ngClass]="{ error: isFieldInvalid('precio') }" />
+        </div>
+        <div class="form-control-custom mb-3">
+          <label for="plazo" class="form-label">Plazo (Meses)</label>
+          <input type="number" id="plazo" class="form-control" placeholder="Plazo" formControlName="plazo" [ngClass]="{ error: isFieldInvalid('plazo') }" />
+        </div>
+      </div>
+      <div *ngIf="hasGeneralErrors()" class="error-tag mb-4">
+        <h3>Errores del formulario</h3>
+        <div *ngIf="isFieldInvalid('titulo')" class="d-block">El título es requerido.</div>
+        <div *ngIf="isFieldInvalid('descripcion')" class="d-block">La descripción es requerida.</div>
+        <div *ngIf="hasTasaErrors()" class="d-block">
+          <div *ngIf="hasTasaRequiredError()">Todos los campos de precios son requeridos.</div>
+          <div *ngIf="hasTasaMinError()">El precio debe ser mayor a 0.</div>
+          <div *ngIf="hasTasaMaxError()">El plazo debe ser un número entero positivo mayor que 0.</div>
+        </div>
+      </div>
+      <div class="col-sm-3 mb-4">
+        <button type="submit" class="btn btn-primary calculate w-100" [disabled]="formRegistroDirective.invalid || !hasChanges">
+          {{ action === "add" ? "Agregar" : "Actualizar" }}
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

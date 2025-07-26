@@ -1,0 +1,131 @@
+<article class="container-fluid max-w-1440">
+	<div class="row mb-3">
+		<h2>Gestión de pagos</h2>
+		<p>Consulta tu actividad de pagos y el saldo actual de tu cuenta de Beacon.</p>
+	</div>
+
+	@defer {
+	<div class="row mb-3">
+		<span class="fw-bold h5">Tus suscripciones y pagos</span>
+
+	</div>
+	@if (paypalUserSubscription?.estado != 'APPROVED') {
+	<p>Selecciona una de las siguientes opciones para realizar un pago.</p>
+
+	<div class="row mb-3">
+		<form>
+			@for (config of configs; track config; let i = $index) {
+			<div class="form-check border border-info rounded p-3 mb-3">
+				<input class="form-check-input" type="radio" [id]="'suscription-'.concat(i.toString())"
+					name="suscription-select" (click)="selectSubscription(config)">
+				<label class="form-check-label ps-5 w-100" [for]="'suscription-'.concat(i.toString())">
+					{{config.titulo}}
+					<span class="badge bg-primary float-end">
+						{{config.plazo}} meses
+					</span>
+					<hr />
+					<span class="text-success">🟢 Precio: {{config.precio}} $</span> {{config.descripcion}}
+				</label>
+			</div>
+			}
+
+
+		</form>
+	</div>
+
+	<div *ngIf="selected" class="w-100 m-auto mb-5">
+		<ngx-paypal [config]="selected" />
+	</div>
+
+	<div *ngIf="!selected" class="row mb-3">
+		<p>Selecciona una de las opciones para realizar un pago.</p>
+	</div>
+	}
+
+	@else {
+	@if (paypalUserSubscription){
+	<div class="row mb-3">
+		<p>Ya tienes una suscripción activa.</p>
+	</div>
+
+	<div class="row mb-3">
+		<form>
+			<div class="form-check border border-info rounded p-3 mb-3">
+				<input class="form-check-input" id="suscription" type="radio" checked>
+				<label class="form-check-label ps-5 w-100" for="suscription">
+					{{paypalUserSubscription.subscription.titulo}}
+					<span class="badge bg-info font-monospace float-end">
+						Vence {{paypalUserSubscriptionDate(paypalUserSubscription.endOfSuscriptionAt)}}
+					</span>
+					<hr />
+					{{paypalUserSubscription.subscription.descripcion}}
+				</label>
+			</div>
+		</form>
+	</div>
+	}
+	}
+	} @placeholder (minimum 1000ms) {
+		<div class="d-flex align-items-center justify-content-center p-3">
+			<div class="spinner-border text-primary" role="status">
+			  <span class="visually-hidden">Loading...</span>
+			</div>
+		</div>
+	}
+
+	<div class="row mb-3">
+		<span class="fw-bold h5">Historial de pagos</span>
+		<p>Consulta tu historial de pagos de tu cuenta de Beacon.</p>
+		<small class="text-muted">Puedes consultar hasta los últimos tres pagos realizados.</small>
+	</div>
+
+
+	@defer {
+	<div *ngIf="pastSuscriptions.length == 0" class="row mb-3">
+		<p>No tienes pagos registrados.</p>
+	</div>
+
+	<div class="row mb-1">
+		<form>
+			@for (suscription of pastSuscriptions; track suscription; let i = $index) {
+			@if (pastSuscriptions.length - 4 < i){ <div class="card mb-2">
+				<div class="card-header">
+					{{suscription.subscription.titulo}}
+
+					<span *ngIf="suscription.estado == 'APPROVED'" class="badge bg-primary float-end">
+						Pagado
+					</span>
+
+					<span *ngIf="suscription.estado == 'CONFIRMATION'" class="badge bg-info float-end">
+						Pendiente
+					</span>
+
+					<span *ngIf="suscription.estado == 'CANCELED'" class="badge bg-warning float-end">
+						Cancelado
+					</span>
+
+					<span *ngIf="suscription.estado == 'INERROR'" class="badge bg-danger float-end">
+						Error
+					</span>
+				</div>
+				<div class="card-body">
+					<p>
+						<span class="me-3">Fecha de inicio: {{paypalUserSubscriptionDate(suscription.createdAt)}}</span>
+						<span class="me-3">Fecha de fin: {{paypalUserSubscriptionDate(suscription.endOfSuscriptionAt)}}</span>
+					</p>
+					<span class="text-success me-3">Precio descontado final: {{suscription.subscription.precio}} $</span>
+				</div>
+	</div>
+	}
+	}
+	</form>
+	</div>
+	}
+	@placeholder (minimum 1000ms) {
+	<div class="d-flex align-items-center justify-content-center p-3">
+		<div class="spinner-border text-primary" role="status">
+			<span class="visually-hidden">Loading...</span>
+		</div>
+	</div>
+	}
+</article>

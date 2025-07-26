@@ -1,0 +1,145 @@
+.beacon-app-containter {
+    background-color: #f9f9f9;
+  }
+  
+  
+  .dashboard h2 {
+    font-size: 20px;
+    font-weight: bold;
+  }
+  
+  
+  .dashboard .content-display .container-display {
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 2em;
+  }
+  
+  .dashboard .btn-container .btn {
+    background-color: #62ceab;
+    border: 0;
+    font-weight: bold;
+    color: #ffffff;
+    border-radius: 10px;
+  }
+  
+  .dashboard .btn.calculate {
+    background-color: #03b9ab;
+    border: 0;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 1em;
+    border-radius: 0;
+    color: #ffffff;
+  }
+  
+  .dashboard .content-display .btn-primary:hover,
+  .dashboard .content-display .btn-primary:focus {
+    background-color: #03b9ab;
+  }
+  
+  .dashboard .btn-container > *:not(:last-child) {
+    margin-right: 1em;
+  }
+  
+  @media (max-width: 575px) {
+    .dashboard .btn-container > *:last-child {
+      margin-top: 1em;
+    }
+  }
+  
+  .dashboard .btn-container .active {
+    background-color: #03b9ab;
+  }
+  
+  .dashboard .rectangle {
+    margin-bottom: 1em;
+    display: inline-block;
+    width: 50px;
+    height: 5px;
+    background-color: #03b9ab;
+  }
+  
+  .beacon-app-containter {
+    margin-top: 58px;
+  }
+  
+  @media (max-width: 575px) {
+  
+    .dashboard .btn-container > *{
+      width: 100%;
+    }
+    
+    .dashboard .btn-container > *:not(:last-child) {
+      margin-right: 0;
+      margin-bottom: 1em;
+    }
+  
+    .dashboard .btn-container > *:last-child {
+      margin-top: 0;
+  }
+  }
+  
+  @media (min-width: 992px) {
+    /* Estilo por defecto para main-content */
+    .beacon-app-containter {
+      transition: margin-left 0.3s;
+      margin-left: 250px;
+    }
+  
+    .beacon-app-containter.collapsed {
+      margin-left: 100px;
+    }
+    .dashboard .content-display {
+      padding: 2em 2em 0em 2em;
+    }
+    
+  }
+  
+  .form-control.results {
+    border: none;
+    border-bottom: 1px solid #343434;
+  }
+  
+  .banks-access{
+    cursor: pointer;
+  }
+
+  .dashboard .form-control-custom label.results{
+    top: 4px;
+    left: 5px;
+  }
+
+  .dashboard-select-wrapper{
+    position: relative;
+  }
+
+  .dashboard-select-wrapper:after {
+    content: "\f078";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    pointer-events: none;
+    transform: translateY(-50%);
+    transition: transform 0.3s ease;
+  }
+
+  
+  .banks-access::after{
+    content: "\f078";
+    color: #000000;
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    position: absolute;
+    top: 25px;
+    right: 20px;
+    pointer-events: none;
+    transform: translateY(-50%);
+    transition: transform 0.3s ease;
+  }
+
+  .ngx-charts-outer{
+    margin: auto !important;
+  }

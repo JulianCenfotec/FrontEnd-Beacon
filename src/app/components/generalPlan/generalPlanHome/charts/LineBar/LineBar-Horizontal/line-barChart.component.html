@@ -1,0 +1,19 @@
+<div *ngIf="noData" class="alert alert-warning mt-3 ng-star-inserted">
+  No  existen proyecciones de datos del mes.
+</div>
+
+<div *ngIf="!noData" style="display: block;">
+  <ngx-charts-bar-horizontal
+    [results]="single"
+    [view]="view"
+    [scheme]="colorScheme"
+    [gradient]="gradient"
+    [xAxis]="showXAxis"
+    [yAxis]="showYAxis"
+    [legend]="showLegend"
+    [showXAxisLabel]="showXAxisLabel"
+    [showYAxisLabel]="showYAxisLabel"
+    [xAxisLabel]="xAxisLabel"
+    [yAxisLabel]="yAxisLabel">
+  </ngx-charts-bar-horizontal>
+</div>

@@ -1,0 +1,27 @@
+<div class="card plan-card bg-white mb-3" draggable="true" [attr.data-event]="getEventData(plan)">
+  <div class="card-body">
+    <div class="d-flex align-items-center">
+      <div class="text-truncate">
+        <span>{{ plan.titulo }}</span>
+      </div>
+
+      <div class="ms-auto d-flex align-items-center">
+        <div class="plan-option ms-1" (click)="openPlanPreview()">
+          <div class="d-flex justify-content-center align-items-center">
+            <i class="fas fa-eye fa-fw"></i>
+          </div>
+        </div>
+
+        <div class="plan-option ms-1" type="button" (click)="handlePlanAddSubmenu()">
+          <div class="d-flex justify-content-center align-items-center">
+            <i class="fas fa-plus fa-fw"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="card-text m-0">
+      <i class="fas fa-clock"></i>
+      Duración: <span class="text-lowercase">{{ plan.periodo }}</span>
+    </p>
+  </div>
+</div>

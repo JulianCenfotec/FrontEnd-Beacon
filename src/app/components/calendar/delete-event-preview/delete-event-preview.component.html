@@ -1,0 +1,38 @@
+<div class="modal-header">
+	<h5 class="modal-title">Detalles del evento</h5>
+	<button type="button" class="btn-close" (click)="close()" aria-label="Close"></button>
+</div>
+<article class="modal-body beacon">
+	<form [formGroup]="formDirective">
+		<div class="form-group">
+			<label for="nombre">Nombre del evento</label>
+			<input type="text" id="nombre" class="form-control" formControlName="nombre">
+		</div>
+		<div class="form-group mt-3" *ngIf="selector.type == 'Plan' || selector.type == 'Otro'">
+			<label for="descripcion">Descripción (opcional)</label>
+			<textarea id="descripcion" class="form-control" formControlName="descripcion"></textarea>
+		</div>
+		<div class="form-group mt-3">
+			<label for="fecha">Fecha del evento</label>
+			<input type="date" id="fecha" class="form-control" formControlName="fecha">
+		</div>
+		<div class="form-group mt-3">
+			<input type="checkbox" id="confirmDelete" class="form-check-input custom-checkbox" formControlName="confirmDelete">
+			<label class="form-check-label ms-3" for="confirmDelete">
+				Quiero eliminar este evento
+			</label>
+		</div>
+		<div class="d-flex flex-row-reverse mt-3">
+			<button type="button" class="btn primary rounded text-white me-3 my-1 bg-danger" *ngIf="deleteConfirmed"
+				(click)="onSubmit()">
+				<i class="fas fa-trash-alt fa-fw me-2 text-white"></i>
+				<span>Eliminar</span>
+			</button>
+			<button type="button" class="btn primary rounded bg-secondary text-white me-3 my-1" *ngIf="!deleteConfirmed"
+				(click)="close()">
+				<i class="fas fa-times fa-fw me-2 text-white"></i>
+				<span>Cerrar</span>
+			</button>
+		</div>
+	</form>
+</article>

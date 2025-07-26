@@ -1,0 +1,64 @@
+<footer class="footer beacon mt-auto pt-5">
+  <div class="container-fluid max-w-1440">
+    <div class="footer-container">
+      <div class="mb-3">
+        <img src="../../../../../assets/img/beacon-logo.svg" alt="Logo de Beacon." />
+      </div>
+      <div class="row justify-content-between">
+        <div class="col-sm-6 col-md-2">
+          <h3>Acceder</h3>
+          <ul>
+            <ng-container *ngIf="!isAuthenticated; else authenticatedLinks">
+              <li><a [routerLink]="'/beacon/login'" (click)="goTo()">Iniciar sesión</a></li>
+              <li><a [routerLink]="'/beacon/register'" (click)="goTo()">Registrarse</a></li>
+            </ng-container>
+            <ng-template #authenticatedLinks>
+              <li><a [routerLink]="'/beacon/app/panel'" (click)="goTo()">Panel General</a></li>
+            </ng-template>
+          </ul>
+        </div>
+        <div class="col-sm-6 col-md-5">
+          <h3>Funciones</h3>
+          <div class="row">
+            <div class="col-6">
+              <ul class="list-unstyled">
+                <li><p>Gestión de Ahorros</p></li>
+                <li><p>Control de Deudas</p></li>
+                <li><p>Planificación de Préstamos</p></li>
+              </ul>
+            </div>
+            <div class="col-6">
+              <ul class="list-unstyled">
+                <li><p>Presupuestos Personalizados</p></li>
+                <li><p>Reportes Financieros</p></li>
+                <li><p>Educación Financiera</p></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-2">
+          <h3>Servicios</h3>
+          <ul>
+            <li><a [routerLink]="'/beacon/app/calculator'" (click)="goTo()">Calculadoras</a></li>
+            <li><a [routerLink]="'/beacon/app/panel'" (click)="goTo()">Planificador</a></li>
+          </ul>
+        </div>
+        <div class="col-sm-6 col-md-2">
+          <h3>Contacto</h3>
+          <ul>
+            <li>+506 2689 7785</li>
+            <li>San José, Costa Rica</li>
+            <li>
+              <a class="text-break w-100" href="mailto:soporte@beacon.co.cr">soporte&#64;beacon.co.cr</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-additional">
+        <div class="col-reserved text-center text-md-left">
+          © Beacon. Todos los derechos reservados.
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>

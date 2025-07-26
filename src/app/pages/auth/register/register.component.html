@@ -1,0 +1,88 @@
+<article class="access-point">
+    <div class="container access">
+        <div class="login-box">
+            <div class="text-center mb-4">
+                <img src="assets/img/beacon-logo.svg" alt="Logo" class="login-logo">
+                <h1 class="title">Crear una cuenta</h1>
+            </div>
+            <form [formGroup]="formRegistroDirective" (ngSubmit)="onSubmit()">
+                <div class="form-group">
+                    <input type="email" formControlName="email" 
+                           [ngClass]="{'error': email.touched && email.errors}" 
+                           class="form-control" 
+                           placeholder="Dirección de correo electrónico">
+                    <p class="error-message" id="email-helper-text">
+                        <span *ngIf="email.touched && email.errors?.['required']">
+                            Por favor, ingrese un correo electrónico.
+                        </span>
+                        <span *ngIf="email.touched && email.errors?.['email']">
+                            Debe ser un correo electrónico válido.
+                        </span>
+                    </p>
+                </div>
+
+                <div class="form-group">
+                    <input type="text" formControlName="name" 
+                           [ngClass]="{'error': name.touched && name.errors}" 
+                           class="form-control" 
+                           placeholder="Nombre">
+                    <p class="error-message" id="firstName-helper-text">
+                        <span *ngIf="name.touched && name.errors?.['required']">
+                            Por favor, ingrese su nombre.
+                        </span>
+                    </p>
+                </div>
+
+                <div class="form-group">
+                    <input type="text" formControlName="lastname" 
+                           [ngClass]="{'error': lastname.touched && lastname.errors}" 
+                           class="form-control" 
+                           placeholder="Apellido">
+                    <p class="error-message" id="lastName-helper-text">
+                        <span *ngIf="lastname.touched && lastname.errors?.['required']">
+                            Por favor, ingrese su apellido.
+                        </span>
+                    </p>
+                </div>
+
+                <div class="form-group">
+                    <input type="text" formControlName="displayname" 
+                           [ngClass]="{'error': displayname.touched && displayname.errors}" 
+                           class="form-control" 
+                           placeholder="Nombre en pantalla">
+                    <p class="error-message" id="displayname-helper-text">
+                        <span *ngIf="displayname.touched && displayname.errors?.['required']">
+                            Por favor, ingrese un nombre en pantalla.
+                        </span>
+                        <span *ngIf="displayname.touched && displayname.errors?.['maxlength']">
+                            El nombre en pantalla no puede tener más de 50 caracteres.
+                        </span>
+                    </p>
+                </div>
+
+                <div class="form-group">
+                    <input type="password" formControlName="password" 
+                           [ngClass]="{'error': password.touched && password.errors}" 
+                           class="form-control" 
+                           placeholder="Contraseña">
+                    <p class="error-message" id="password-helper-text">
+                        <span *ngIf="password.touched && password.errors?.['required']">
+                            Por favor, ingrese una contraseña.
+                        </span>
+                        <span *ngIf="password.touched && password.errors?.['minlength']">
+                            La contraseña debe tener al menos 8 caracteres.
+                        </span>
+                    </p>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-block" [disabled]="formRegistroDirective.invalid">Registrarse</button>
+            </form>
+            <div class="additional-links">
+                <div class="first">
+                    <p>¿Ya tienes una cuenta?</p>
+                    <a [routerLink]="'/beacon/login'">Iniciar sesión</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</article>

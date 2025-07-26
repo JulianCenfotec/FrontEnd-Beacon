@@ -1,0 +1,8 @@
+<div class="user-select-none">
+  <div *ngFor="let plan of plans">
+    <app-calendar-plan [openCreateEventPreview]="openCreateEventPreview" [plan]="plan" />
+  </div>
+  <div class="alert alert-warning my-1" *ngIf="plans.length <= 0">
+    No hay plantillas disponibles
+  </div>
+</div>

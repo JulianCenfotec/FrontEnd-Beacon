@@ -1,0 +1,84 @@
+<div class="container-display shadow-sm my-3 mb-5">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-12">
+				<h1 class="h2">Plantillas del sistema</h1>
+				<p>Explora las plantillas del sistema. Puedes utilizarlas como base para tus propios planes.</p>
+			</div>
+		</div>
+
+		<hr>
+
+		@defer {
+		<div class="d-flex flex-wrap">
+			<div *ngFor="let p of plans" class="p-1 col-12 col-lg-6 col-xl-4 d-flex align-items-stretch">
+				<div class="card w-100 shadow-sm">
+					<div class="card-body">
+						<h5 class="card-title">
+							{{p.titulo}}
+						</h5>
+
+						<p class="card-text">
+							{{p.descripcion}}
+						</p>
+
+						<div class="py-2">
+							@if (isAdministrator) {
+							<div class="form-check">
+								<input class="form-check-input custom-checkbox" disabled type="checkbox"
+									[checked]="p.sistema" />
+								<label class="form-check-label">
+									Plantilla de sistema
+								</label>
+							</div>
+							}
+						</div>
+
+						<div class="form-check">
+							<input class="form-check-input custom-checkbox" disabled type="checkbox"
+								[checked]="p.compartida" />
+							<label class="form-check-label">
+								<span class="me-5">Ha sido compartida</span>
+								<span *ngIf="p.compartida" class="h6 text-monospace text-muted">
+									Código de plantilla: {{p.id}}
+								</span>
+							</label>
+						</div>
+
+						<hr>
+
+						<form class="d-flex flex-column">
+							<div>
+								<button type="button" class="beacon btn primary rounded text-white me-3 my-1"
+									(click)="openPlanPreview(p)">
+									<i class="fas fa-eye me-3 text-white"></i>
+									<span>Previsualizar</span>
+								</button>
+								<button type="button" class="beacon btn primary rounded text-white me-3 my-1"
+									(click)="openPlanImport(p)">
+									<i class="fa-solid fa-file-import me-3 text-white"></i>
+									<span>Importar</span>
+								</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="alert alert-warning mt-3" *ngIf="plans.length == 0">
+			<h4 class="h2 text-muted">
+				No hay plantillas del sistema disponibles.
+			</h4>
+		</div>
+		}
+		@placeholder (minimum 3000ms) {
+		<div class="d-flex justify-content-center">
+			<div class="spinner-border color-primary" role="status">
+				<span class="sr-only">Loading...</span>
+			</div>
+		</div>
+		}
+
+	</div>
+</div>

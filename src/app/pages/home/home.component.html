@@ -1,0 +1,252 @@
+<div class="beacon">
+  <app-navbar></app-navbar>
+
+  <section class="home">
+    <div class="banner h-100">
+      <div class="container-fluid max-w-1440">
+        <div class="text-container">
+          <h1>Te Ayudamos a Construir tu Futuro Financiero</h1>
+          <p>
+            Con Beacon, controla tus ahorros, deudas, préstamos y presupuestos
+            en un solo lugar. Optimiza tu futuro financiero con herramientas
+            inteligentes y reportes claros. ¡Empieza hoy!
+          </p>
+          <div class="btn-container">
+            <ng-container *ngIf="!isAuthenticated; else authenticatedLinks">
+              <a [routerLink]="'/beacon/register'" (click)="goTo()" class="btn primary">Regístrate Ahora</a>
+            </ng-container>
+            <ng-template #authenticatedLinks>
+              <a [routerLink]="'/beacon/app/panel'" (click)="goTo()" class="btn primary">Plan General</a>
+            </ng-template>
+            <a data-fragment="about" class="btn secondary">Descubre más</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" class="about">
+    <div class="titling">
+      <div class="container-fluid max-w-1440">
+        <div class="text-container">
+          <h2>Acerca de Beacon</h2>
+          <span class="rectangle"></span>
+          <p>
+            Beacon es una plataforma que facilita la gestión de finanzas
+            personales de manera sencilla y eficiente. Ofrece herramientas
+            claras y accesibles para tomar decisiones informadas y optimizar la
+            economía personal
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="columns">
+      <div class="container-fluid max-w-1440">
+        <div class="row">
+          <div class="col-md-4 column">
+            <h3><i class="fa-solid fa-check"></i> Lo que somos</h3>
+            <ul>
+              <li>Plataforma de gestión financiera.</li>
+              <li>Facilitadores de decisiones informadas.</li>
+              <li>Proveedores de reportes claros.</li>
+              <li>Comprometidos con la transparencia.</li>
+              <li>Enfocados en la seguridad de tus datos.</li>
+              <li>Apoyo para tu crecimiento financiero.</li>
+            </ul>
+          </div>
+          <div class="col-md-4 column">
+            <h3><i class="fa-solid fa-x"></i> Lo que no somos</h3>
+            <ul>
+              <li>Asesores financieros.</li>
+              <li>Entidad bancaria certificada.</li>
+              <li>Proveedores de servicios de inversión.</li>
+              <li>Sustitutos de una consulta profesional.</li>
+              <li>Plataforma para transacciones bancarias.</li>
+              <li>Servicio de contabilidad empresarial.</li>
+            </ul>
+          </div>
+          <div class="col-md-4 column">
+            <h3><i class="fa-solid fa-hand"></i> Lo que ofrecemos</h3>
+            <ul>
+              <li>Gestión de ahorros y deudas.</li>
+              <li>Reportes financieros claros.</li>
+              <li>Planes de unificación de deudas.</li>
+              <li>Herramientas de planificación.</li>
+              <li>Notificaciones financieras.</li>
+              <li>Módulo educativo para usuarios.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="functions">
+    <div class="titling">
+      <div class="container-fluid max-w-1440">
+        <div class="text-container">
+          <h2>Funciones</h2>
+          <span class="rectangle"></span>
+          <p>
+            Beacon ofrece una variedad de servicios diseñados para simplificar
+            la gestión de tus finanzas personales. Cada servicio está diseñado
+            para brindar herramientas específicas que te ayudarán a tomar
+            decisiones informadas y a mantener tu economía en orden.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="columns">
+      <div class="container-fluid max-w-1440">
+        <div class="grid-container align-items-start">
+          <div class="grid-item">
+            <img
+              src="../../../assets/icons/moneybag-icon.svg"
+              alt="Icono de un portafolio de dinero."
+            />
+            <div>
+              <h3>Gestión de Ahorros</h3>
+              <p>Optimiza y sigue tus ahorros de manera eficiente.</p>
+            </div>
+          </div>
+          <div class="grid-item">
+            <img
+              src="../../../assets/icons/decrease-icon.svg"
+              alt="Icono de un gráfico financiero hacia abajo."
+            />
+            <div>
+              <h3>Control de Deudas</h3>
+              <p>Administra y reduce tus deudas con facilidad.</p>
+            </div>
+          </div>
+          <div class="grid-item">
+            <img
+              src="../../../assets/icons/notes-icon.svg"
+              alt="Icono de un montón de notas."
+            />
+            <div>
+              <h3>Planificación de Préstamos</h3>
+              <p>Encuentra y gestiona tus préstamos de manera efectiva.</p>
+            </div>
+          </div>
+          <div class="grid-item">
+            <img
+              src="../../../assets/icons/graphic-icon.svg"
+              alt="Icono de un gráfico."
+            />
+            <div>
+              <h3>Presupuestos Personalizados</h3>
+              <p>Crea y ajusta presupuestos adaptados a tus necesidades.</p>
+            </div>
+          </div>
+          <div class="grid-item">
+            <img
+              src="../../../assets/icons/books-icon.svg"
+              alt="Icono de tres libros en fila."
+            />
+            <div>
+              <h3>Reportes Financieros</h3>
+              <p>
+                Accede a reportes detallados para tomar decisiones informadas.
+              </p>
+            </div>
+          </div>
+          <div class="grid-item">
+            <img
+              src="../../../assets/icons/increase-icon.svg"
+              alt="Icono de un gráfico financiero hacia arriba."
+            />
+            <div>
+              <h3>Educación Financiera</h3>
+              <p>
+                Mejora tus conocimientos financieros con recursos educativos.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="service">
+    <div class="titling">
+      <div class="container-fluid max-w-1440">
+        <div class="text-container">
+          <h2>Servicios</h2>
+          <span class="rectangle"></span>
+          <p>
+            Beacon ofrece una gama de servicios diseñados para hacer más fácil y
+            efectiva la gestión de tus finanzas personales. Con herramientas
+            intuitivas y reportes detallados, cada servicio está orientado a
+            proporcionar el apoyo necesario para que puedas tomar decisiones
+            financieras informadas y optimizar tu economía personal.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="columns">
+      <div class="container-fluid max-w-1440">
+        <div class="grid-container">
+          <a
+            [routerLink]="'/beacon/app/calculator'"
+            (click)="goTo()"
+            class="column"
+          >
+            <img
+              src="../../../assets/img/calculators.svg"
+              alt="Una calculadora básica de color verde agua"
+            />
+            <div class="text-container">
+              <h3>Calculadoras Financieras</h3>
+              <p>
+                Realiza cálculos precisos para tus ahorros, préstamos y deudas
+                con nuestras herramientas financieras.
+              </p>
+            </div>
+          </a>
+          <a [routerLink]="'/beacon/app/calendar'" (click)="goTo()" class="column">
+            <img
+              src="../../../assets/img/planning.svg"
+              alt="Icono de un gráfico financiero con cuatro puntos marcados"
+            />
+            <div class="text-container">
+              <h3>Planificador de Finanzas Personales</h3>
+              <p>
+                Organiza y planifica tu futuro financiero con herramientas de
+                planificación personalizadas.
+              </p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="project">
+    <div class="titling">
+      <div class="container-fluid max-w-1440">
+        <div class="text-container">
+          <h2>Centro de Ayuda</h2>
+          <span class="rectangle"></span>
+          <p>
+            El Centro de Ayuda de Beacon está diseñado para ofrecer soporte y
+            recursos que te ayuden a gestionar tus finanzas de manera efectiva.
+            Encuentra información útil y guías detalladas para resolver tus
+            dudas y aprovechar al máximo todas las funcionalidades de la
+            plataforma.
+          </p>
+          <div class="btn-container">
+            <a
+              [routerLink]="'/beacon/help-center'"
+              class="btn secondary"
+              (click)="goTo()"
+              >Ver Preguntas Frecuentes</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <app-footer></app-footer>
+</div>

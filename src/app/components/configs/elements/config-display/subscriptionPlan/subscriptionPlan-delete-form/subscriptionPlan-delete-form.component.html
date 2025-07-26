@@ -1,0 +1,36 @@
+<div class="d-flex align-item-center justify-content-end p-2">
+  <button
+    type="button"
+    data-bs-dismiss="modal"
+    aria-label="Close"
+    class="btn-close"
+    (click)="closeModal()"
+  ></button>
+</div>
+<article class="container-fluid max-w-1440 d-flex justify-content-center align-items-center user-select-none bcn-access">
+  <div class="bcn-login-box mb-4">
+    <form class="delete-user-container">
+      <div class="icon-container">
+        <i class="fas fa-exclamation-triangle"></i>
+      </div>
+      <h3 class="main-div fw-bold">{{ title }}</h3>
+      <div class="text-center mt-4">
+        <p>¿Estás seguro de que deseas eliminar la suscripción <span class="fw-bold">{{subscriptionPlan.titulo}}</span>?</p>
+      </div>
+      <div class="btn-container">
+        <button
+          type="button"
+          class="btn btn-secondary m-3"
+          (click)="closeModal()">
+          No, Conservarlo
+        </button>
+        <button
+          type="button"
+          class="btn btn-danger m-3"
+          (click)="handleDelete(subscriptionPlan)">
+          Sí, Eliminarlo
+        </button>
+      </div>
+    </form>
+  </div>
+</article>

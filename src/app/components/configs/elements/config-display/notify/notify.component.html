@@ -1,0 +1,83 @@
+<div
+  class="option-container"
+  *ngIf="preferencesForm"
+  [formGroup]="preferencesForm"
+>
+    <div
+            *ngIf="loading"
+            class="position-fixed top-0 start-0 w-100 h-100 d-flex justify-content-center align-items-center bg-light bg-opacity-75"
+            style="z-index: 1000; display: none"
+    >
+        <div class="spinner-border text-primary" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+
+    <h2>Preferencias de correo electrónico</h2>
+  <p>
+    Gestiona tus preferencias de suscripción a los correos electrónicos de
+    Beacon para recibir noticias, encuestas y ofertas especiales. Tus
+    preferencias de suscripción no afectan a los correos electrónicos de
+    transacciones como recibos de compras, verificación por correo electrónico,
+    restablecimientos de contraseña y autenticación en dos pasos.
+  </p>
+  <h3>Gestionar preferencias de correo electrónico</h3>
+  <div formArrayName="notifications">
+    <div
+      *ngFor="let notification of notifications.controls; let i = index"
+      [formGroupName]="i"
+      class="d-flex align-items-start mb-3"
+    >
+      <div class="mr-3">
+        <input
+          formControlName="enabled"
+          class="custom-checkbox"
+          type="checkbox"
+        />
+      </div>
+      <div>
+        <span>{{ notification.get("name")?.value }}</span>
+        <p>{{ notification.get("description")?.value }}</p>
+      </div>
+    </div>
+  </div>
+
+  <h3>Anticipación de la notificacion</h3>
+  <div class="col-lg-6">
+    <div class="custom-select-wrapper">
+      <label for="nombre">Anticipación</label>
+      <select formControlName="reportFrequency" class="form-control">
+        <option value="ZERO">El mismo día</option>
+        <option value="ONE">Un día</option>
+        <option value="THREE">Tres días</option>
+        <option value="SEVEN">Siete días</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="btn-container">
+    <button
+      (click)="onSaveChanges()"
+      class="btn primary mb-4 col-lg-5"
+      [disabled]="true"
+    >
+      Guardar cambios
+    </button>
+    <button
+      (click)="onResetPreferences()"
+      class="btn secondary mb-4 col-lg-4"
+      [disabled]="true"
+    >
+      Restablecer preferencias
+    </button>
+      <div *ngIf="isAdmin()" >
+          <h3 class="mb-1">Realizar test en el envio de notificaciones</h3>
+          <p>
+              Haz una prueba para verificar que las notificaciones estan llegando.
+          </p>
+          <button  (click)="testNotify()" class="  alert  alert-warning">
+              Ejecutar
+          </button>
+      </div>
+  </div>
+</div>

@@ -1,0 +1,92 @@
+<div class="beacon">
+  <app-navbar></app-navbar>
+  <section class="error">
+    <div class="banner h-100">
+      <div class="container-fluid max-w-1440">
+        <div class="text-container text-center">
+          <img src="../../../assets/img/error-broken.svg" alt="Un niño viendo un espejo roto, mientras sostiene una pelota.">
+          <div class="disclaimer-message">Vaya, algo se rompió.</div>
+          <p>Página solicitada no encontrada - 404.</p>
+          <h1>Por suerte, tenemos un plan adicional para garantizar éxitos.</h1>
+          <span class="rectangle"></span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="option">
+    <div class="titling">
+      <div class="container-fluid max-w-1440">
+        <div class="text-center">
+          <h2>Estamos aquí para ayudar</h2>
+        </div>
+      </div>
+    </div>
+    <div class="columns">
+      <div class="container-fluid max-w-1440">
+        <div class="row">
+          <a [routerLink]="'/beacon/home'" class="col-md-4 column text-center text-dark" (click)="goTo()">
+            <img src="../../../assets/icons/home-icon.svg" alt="Icono de una casa.">
+            <h3>Volver al inicio</h3>
+          </a>
+          <a [routerLink]="'/beacon/help-center'" class="col-md-4 column text-center text-dark" (click)="goTo()">
+            <img src="../../../assets/icons/help-icon.svg" alt="Icono de soporte.">
+            <h3>Centro de Ayuda</h3>
+          </a>
+          <ng-container *ngIf="isAuthenticated; else loginLink">
+            <a [routerLink]="'/beacon/app/panel'" class="col-md-4 column text-center text-dark" (click)="goTo()">
+              <img src="../../../assets/icons/panel-icon.svg" alt="icono de un gráfico con datos estadísticos">
+              <h3>Panel General</h3>
+            </a>
+          </ng-container>
+          <ng-template #loginLink>
+            <a [routerLink]="'/beacon/login'" class="col-md-4 column text-center text-dark" (click)="goTo()">
+              <img src="../../../assets/icons/into-icon.svg" alt="Icono de una entrada.">
+              <h3>Iniciar sesión</h3>
+            </a>
+          </ng-template>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="service">
+    <div class="titling">
+      <div class="container-fluid max-w-1440">
+        <div class="text-container text-center">
+          <h2>Servicios</h2>
+          <span class="rectangle"></span>
+          <p>
+            Beacon ofrece una gama de servicios diseñados para hacer
+            más fácil y efectiva la gestión de tus finanzas personales.
+            Con herramientas intuitivas y reportes detallados, cada
+            servicio está orientado a proporcionar el apoyo necesario
+            para que puedas tomar decisiones financieras informadas y
+            optimizar tu economía personal.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="columns">
+      <div class="container-fluid max-w-1440">
+        <div class="grid-container">
+          <a [routerLink]="'/beacon/app/calculator'" class="column" (click)="goTo()">
+            <img src="../../../assets/img/calculators.svg" alt="Una calculadora básica de color verde agua" />
+            <div class="text-container">
+              <h3>Calculadoras Financieras</h3>
+              <p>Realiza cálculos precisos para tus ahorros, préstamos y deudas con nuestras herramientas financieras.</p>
+            </div>
+          </a>
+          <a [routerLink]="'/beacon/app/calendar'" class="column" (click)="goTo()">
+            <img src="../../../assets/img/planning.svg" alt="Icono de un gráfico financiero con cuatro puntos marcados" />
+            <div class="text-container">
+              <h3>Planificador de Finanzas Personales</h3>
+              <p>Organiza y planifica tu futuro financiero con herramientas de planificación personalizadas.</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <app-footer></app-footer>

@@ -1,0 +1,40 @@
+<!-- Menú Lateral -->
+<nav class="menu-lateral">
+  <h2>Configuraciones Generales</h2>
+  <div class="general-config shadow-sm">
+    @for (route of permittedRoutes; track $index) {
+      @if (route.data && route.data['showInSidebar'] && !route.data['adminOption']) {
+        <a
+          routerLink="{{ route.path }}"
+          routerLinkActive="active"
+          class="text-decoration-none"
+        >
+          <div class="option user-select-none">
+            <i class="fa-solid {{ route.data['icon'] }}"></i>
+            <span>{{ route.data["name"] }}</span>
+          </div>
+        </a>
+      }
+    }
+  </div>
+
+  @if (hasAdminOptions) {
+    <h2>Configuraciones de Administrador</h2>
+    <div class="admin-config shadow-sm">
+      @for (route of permittedRoutes; track $index) {
+        @if (route.data && route.data['showInSidebar'] && route.data['adminOption']) {
+          <a
+            routerLink="{{ route.path }}"
+            routerLinkActive="active"
+            class="text-decoration-none"
+          >
+            <div class="option user-select-none">
+              <i class="fa-solid {{ route.data['icon'] }}"></i>
+              <span>{{ route.data["name"] }}</span>
+            </div>
+          </a>
+        }
+      }
+    </div>
+  }
+</nav>

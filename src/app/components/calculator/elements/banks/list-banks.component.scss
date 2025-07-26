@@ -1,0 +1,26 @@
+
+.search-bar {
+    border: 1px solid #343434;
+    padding-right: 40px;
+    border-radius: 0;
+  }
+  .search-icon {
+    position: absolute;
+    right: 0px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #343434;
+    padding: 7px;
+    border-radius: 0;
+    cursor: pointer;
+  }
+  .bank-card {
+    background-color: #F2F2F2;
+    padding: 10px;
+    border-radius: 0;
+    cursor: pointer;
+  }
+  .bank-card i {
+    color: #343434;
+    font-size: 20px;
+  }

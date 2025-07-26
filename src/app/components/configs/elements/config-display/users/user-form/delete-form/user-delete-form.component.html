@@ -1,0 +1,27 @@
+<article class="container-fluid max-w-1440 d-flex justify-content-center align-items-center user-select-none bcn-access">
+	<div class="bcn-login-box">
+		<form class="delete-user-container">
+			<div class="icon-container">
+				<i class="fas fa-exclamation-triangle"></i>
+			</div>
+			<h3 class="main-div fw-bold">{{ title }}</h3>
+			<div class="text-center mt-4">
+				<p>¿Estás seguro de que deseas eliminar de manera permanente del sistema al usuario: <span class="fw-bold">{{ user.name }} {{ user.lastname }}</span>?</p>
+			</div>
+			<div class="btn-container">
+				<button
+					type="button"
+					class="btn btn-secondary m-3"
+					(click)="closeModal()">
+					No, Conservarlo
+				</button>
+				<button
+					type="button"
+					class="btn btn-danger m-3"
+					(click)="handleDelete(user)">
+					Sí, Eliminarlo
+				</button>
+			</div>
+		</form>
+	</div>
+</article>

@@ -1,0 +1,53 @@
+<div class="d-flex align-item-center justify-content-end p-2">
+  <button
+    type="button"
+    data-bs-dismiss="modal"
+    aria-label="Close"
+    class="btn-close"
+    (click)="closeModal()"
+  ></button>
+</div>
+<div class="modal-body px-5">
+  <h5 class="modal-title">{{ title }}</h5>
+  <p>En este formulario se registran los datos del banco y sus tasas de interés.</p>
+
+  <div class="configuration beacon dashboard" style="background-color: #ffffff">
+    <form [formGroup]="formRegistroDirective" (ngSubmit)="handleAction()" autocomplete="off">
+      <div class="form-control-container">
+        <div class="form-control-custom mb-3">
+          <label for="nombre" class="form-label">Nombre</label>
+          <input type="text" id="nombre" class="form-control" placeholder="Nombre" formControlName="nombre" [ngClass]="{ error: isFieldInvalid('nombre') }" />
+        </div>
+        <div class="form-control-custom mb-3">
+          <label for="tasaAhorro" class="form-label">Tasa de Ahorro (%)</label>
+          <input type="number" id="tasaAhorro" class="form-control" placeholder="Tasa de Ahorro (%)" formControlName="tasaAhorro" [ngClass]="{ error: isFieldInvalid('tasaAhorro') }" />
+        </div>
+      </div>
+      <div class="form-control-container">
+        <div class="form-control-custom mb-3">
+          <label for="tasaCredito" class="form-label">Tasa de Crédito (%)</label>
+          <input type="number" id="tasaCredito" class="form-control" placeholder="Tasa de Crédito (%)" formControlName="tasaCredito" [ngClass]="{ error: isFieldInvalid('tasaCredito') }" />
+        </div>
+        <div class="form-control-custom mb-3">
+          <label for="tasaUnificacion" class="form-label">Tasa de Unificación (%)</label>
+          <input type="number" id="tasaUnificacion" class="form-control" placeholder="Tasa de Unificación (%)" formControlName="tasaUnificacion" [ngClass]="{ error: isFieldInvalid('tasaUnificacion') }" />
+        </div>
+      </div>
+      <div *ngIf="hasGeneralErrors()" class="error-tag mb-4">
+        <h3>Errores del formulario</h3>
+        <div *ngIf="isFieldInvalid('nombre')" class="d-block">El nombre es requerido.</div>
+        <div *ngIf="hasTasaErrors()" class="d-block">
+          <div *ngIf="hasTasaRequiredError()">Todos los campos de tasa son requeridos.</div>
+          <div *ngIf="hasTasaMinError()">Las tasas deben ser mayores a 0.</div>
+          <div *ngIf="hasTasaMaxError()">Las tasas deben ser menores a 100.</div>
+          <div *ngIf="hasTasaDecimalError()">Las tasas deben tener como máximo dos decimales.</div>
+        </div>
+      </div>
+      <div class="col-sm-3 mb-4">
+        <button type="submit" class="btn btn-primary calculate w-100" [disabled]="formRegistroDirective.invalid || !hasChanges">
+          {{ action === "add" ? "Agregar" : "Actualizar" }}
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,74 @@
+<div class="sidebar" id="sidebar">
+  <div class="d-flex flex-column justify-content-between h-100">
+    <ul class="nav flex-column mt-5 pt-3">
+      <li class="nav-item">
+        <a class="nav-link text-nowrap d-flex align-items-center" [routerLink]="['/beacon/app/panel']">
+          <img src="../../../assets/icons/stats-icon.svg" class="icon" />
+          <span class="text text-dark">Plan General</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-nowrap d-flex align-items-center" [routerLink]="['/beacon/app/calendar']">
+          <img src="../../../assets/icons/calendar-icon.svg" class="icon" />
+          <span class="text text-dark">Planificador</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-nowrap d-flex align-items-center" [routerLink]="['/beacon/app/plan-viewer']">
+          <img src="../../../assets/icons/bookmark-icon.svg" class="icon" />
+          <span class="text text-dark">Mis plantillas</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-nowrap d-flex align-items-center" [routerLink]="['/beacon/app/calculator']">
+          <img src="../../../assets/icons/calculator-icon.svg" class="icon" />
+          <span class="text text-dark">Calculadora</span>
+        </a>
+      </li>
+      <hr />
+       
+      <li *ngIf="!isAdministrator" class="nav-item">
+        <a class="nav-link text-nowrap d-flex align-items-center" [routerLink]="['/beacon/configuration/my-subscriptions']">
+          <img src="../../../assets/icons/crown-icon.svg" class="icon" />
+          <span class="text text-dark">Mi suscripción</span>
+        </a>
+      </li>
+
+      <li *ngIf="hasActiveSubscription || isAdministrator" class="nav-item">
+        <a class="nav-link text-nowrap d-flex align-items-center" [routerLink]="['/beacon/app/video']">
+          <img src="../../../assets/icons/video-icon.svg" class="icon" />
+          <span class="text text-dark">Videos Interactivos</span>
+        </a>
+      </li>
+      <hr />
+    </ul>
+
+    <ul class="nav flex-column mb-3 pt-3">
+      <li class="nav-item">
+        <a class="nav-link text-nowrap d-flex align-items-center" [routerLink]="['/beacon/configuration/account']">
+          <img src="../../../assets/icons/user-icon.svg" class="icon" />
+          <span class="text text-dark">Perfil</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-nowrap d-flex align-items-center" [routerLink]="['/beacon/help-center']">
+          <img src="../../../assets/icons/helpcenter-icon.svg" class="icon" />
+          <span class="text text-dark">Ayuda</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-nowrap d-flex align-items-center" [routerLink]="['/beacon/configuration/notifications']">
+          <img src="../../../assets/icons/gear-icon.svg" class="icon" />
+          <span class="text text-dark">Ajustes</span>
+        </a>
+      </li>
+      <hr />
+      <li class="nav-item">
+        <a class="nav-link text-nowrap d-flex align-items-center" (click)="logout()">
+          <img src="../../../assets/icons/logout-icon.svg" class="icon" />
+          <span class="text text-dark">Cerrar sesión</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>

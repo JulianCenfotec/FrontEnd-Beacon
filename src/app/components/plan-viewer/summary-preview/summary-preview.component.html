@@ -1,0 +1,38 @@
+<div class="modal-header">
+	<h5 class="modal-title">Previsualización de {{ plan.titulo }}</h5>
+	<button type="button" class="btn-close" (click)="close()" aria-label="Close"></button>
+</div>
+<article class="modal-body">
+	<p>Descripción: {{plan.descripcion}}</p>
+	<p>Periodo: {{plan.periodo}}</p>
+	<p>Monto utilizado: {{plan.monto}}</p>
+	<p>Saldo restante: {{plan.saldo}}</p>
+
+	
+
+	<h6 class="text-muted">
+		Resumen de ingresos y gastos
+	</h6>
+	<hr>
+
+	<section class="mb-1">
+		<div *ngFor="let ingreso of plan.ingresos; let $index = index">
+			<div class="alert alert-success" role="alert">
+				<h4 class="alert-heading">{{ ingreso.nombre }}</h4>
+				<hr>
+				<span class="badge bg-primary">{{ ingreso.etiqueta.nombre }}</span>
+				<p class="my-0">Monto adquirido: {{ ingreso.monto }}</p>
+			</div>
+		</div>
+	</section>
+	<section class="mb-1">
+		<div *ngFor="let gasto of plan.gastos; let $index = index">
+			<div class="alert alert-danger" role="alert">
+				<h4 class="alert-heading">{{ gasto.nombre }}</h4>
+				<hr>
+				<span class="badge bg-primary">{{ gasto.etiqueta.nombre }}</span>
+				<p class="my-0">Monto debitado: {{ gasto.monto }}</p>
+			</div>
+		</div>
+	</section>
+</article>

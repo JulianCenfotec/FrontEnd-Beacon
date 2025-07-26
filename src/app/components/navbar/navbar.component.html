@@ -1,0 +1,40 @@
+<nav #navbarNav id="navbar" class="navbar navbar-expand-lg navbar-light fixed-top">
+  <div class="container-fluid max-w-1440">
+    <a class="navbar-brand" [routerLink]="'/beacon/home'" (click)="onNavItemClick(); goTo()">
+      <img src="../../../../../assets/img/beacon-logo.svg" alt="Logo de Beacon." />
+    </a>
+    <a #btnMenu id="btnMenu" class="menu collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" (click)="toggleMenu()">
+      <span class="navbar-toggler">
+        <div class="menu">
+          <svg width="40" height="40" viewBox="0 0 100 100">
+            <path class="line color-gr top" d="M 20,30 H 80"></path>
+            <path class="line color-gr middle" d="M 20,50 H 80"></path>
+            <path class="line color-gr bottom" d="M 20,70 H 80"></path>
+          </svg>
+        </div>
+      </span>
+    </a>
+    <div #navbarCollapse class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="'/beacon/home'" (click)="onNavItemClick(); goTo()">Inicio</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="'/beacon/app/calculator'" (click)="onNavItemClick(); goTo()">Calculadoras</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="'/beacon/app/panel'" (click)="onNavItemClick(); goTo()">Planificador</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="'/beacon/help-center'" (click)="onNavItemClick(); goTo()">Centro de ayuda</a>
+        </li>
+        <li class="nav-btn" *ngIf="!isAuthenticated">
+          <a class="btn primary" [routerLink]="'/beacon/login'" (click)="goTo()">Iniciar Sesión</a>
+        </li>
+        <li class="nav-btn" *ngIf="isAuthenticated">
+          <a class="btn primary" (click)="logout()">Cerrar Sesión</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

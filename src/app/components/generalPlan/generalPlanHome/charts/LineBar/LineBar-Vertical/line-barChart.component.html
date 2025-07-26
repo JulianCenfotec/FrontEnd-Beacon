@@ -1,0 +1,19 @@
+<div *ngIf="noData" class="alert alert-warning mt-3 ng-star-inserted w-100">
+  No  existe informacion historica.
+</div>
+
+<div *ngIf="!noData" class="m-auto" style="display: block; ">
+  <ngx-charts-bar-vertical-2d
+    [results]="multi"
+    [view]="view"
+    [scheme]="colorScheme"
+    [gradient]="gradient"
+    [xAxis]="showXAxis"
+    [yAxis]="showYAxis"
+    [legend]="showLegend"
+    [showXAxisLabel]="showXAxisLabel"
+    [showYAxisLabel]="showYAxisLabel"
+    [xAxisLabel]="xAxisLabel"
+    [yAxisLabel]="yAxisLabel">
+  </ngx-charts-bar-vertical-2d>
+</div>

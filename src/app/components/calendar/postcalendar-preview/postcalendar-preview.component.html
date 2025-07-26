@@ -1,0 +1,24 @@
+<div class="modal-header">
+	<h5 class="modal-title">Crear nuevo calendario</h5>
+	<button type="button" class="btn-close" (click)="close()" aria-label="Close"></button>
+  </div>
+  <article class="modal-body beacon">
+	<form [formGroup]="formDirective">
+	  <div class="form-group">
+		<label for="nombre">Nombre de calendario</label>
+		<input type="text" id="nombre" class="form-control" formControlName="nombre">
+	  </div>
+	  
+		<div class="d-flex flex-row-reverse mt-3">
+			<button type="button" class="btn primary rounded text-white me-3 my-1" [disabled]="formDirective.invalid" (click)="onSubmit()">
+				<i class="fas fa-calendar-alt fa-fw me-2 text-white"></i>
+				<span>Crear calendario</span>
+			</button>
+			<button type="button" class="btn primary rounded bg-danger text-white me-3 my-1" (click)="close()">
+				<i class="fas fa-times fa-fw me-2 text-white"></i>
+				<span>Cancelar</span>
+			</button>
+		</div>
+	</form>
+  </article>
+  

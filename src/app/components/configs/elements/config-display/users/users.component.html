@@ -1,0 +1,19 @@
+<div class="option-container">
+    <h2>Usuarios del Sistema</h2>
+    <div class="d-flex justify-content-between align-items-center">
+      <div>
+        <p>Consulta y elimina los usuarios registrados en Beacon.</p>
+      </div>
+    </div>
+  <div>
+    @defer {
+    <div class="d-flex justify-content-end pb-2">
+    </div>
+    <app-user-list></app-user-list>
+    } @placeholder (minimum 1000ms){
+    <div class="p-5">
+      <app-loader></app-loader>
+    </div>
+    }
+  </div>
+</div>

@@ -1,0 +1,410 @@
+/* Importación de fuentes desde Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap');
+
+/* Definición de fuentes personalizadas */
+@font-face {
+    font-family: 'Aquire';
+    src: url('https://font.download/cdn/webfont/aquire/Aquire-BW0ox.woff') format('opentype'); 
+}
+
+
+div.waddle {
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.waddle p{
+    line-height: 35px;
+}
+
+.waddle h2{
+    padding-bottom: 3%;
+}
+
+.waddle .aquire {
+    font-family: 'Aquire', sans-serif;
+}
+
+.waddle .container-fluid {
+    max-width: 1440px;
+}
+
+.waddle .btn-light {
+    border-color: white;
+}
+
+.waddle .no-scroll {
+    overflow: hidden;
+    height: 100%;
+}
+
+/* Navbar */
+
+@media screen and (min-width: 1px) {
+    .waddle .navbar {
+        background-color: transparent;
+        color: #ffffff;
+    }
+
+    .waddle .navbar.scrolled {
+        background-color: #1e1c3f;
+    }
+
+    .waddle .navbar a,
+    .waddle .navbar a.active {
+        color: #ffffff;
+    }
+
+}
+
+@media screen and (max-width: 991.9px) {
+    .waddle .navbar .nav-item {
+        border: 2px solid #ffffff;
+    }
+
+    .waddle .navbar .nav-item:hover {
+        background-color: #1e1c3f;
+        color: #000000;
+    }
+
+    .waddle .navbar-collapse {
+        background-color: #1e1c3f;
+    }
+}
+
+/* Banner */
+
+@media screen and (min-width: 1px) {
+    .waddle .banner {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(../../../assets/img/background-image.svg);
+        background-size: cover;
+        background-position: center;
+        height: 100vh;
+    }
+
+    .waddle .container h-100 {
+        padding-left: 40px;
+    }
+
+    .waddle .container h-1,
+    .waddle .container p {
+        color: white;
+    }
+
+    .waddle .home {
+        text-align: center;
+    }
+
+    .waddle .home h1,
+    .waddle .home p {
+        margin-bottom: 40px;
+    }
+
+    .waddle .home .btn {
+        border: 2px solid #ffffff;
+        color: #ffffff;
+        font-weight: 500;
+        transition: background-color 1s cubic-bezier(0.075, 0.82, 0.165, 1), color 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+    }
+
+    .waddle .home .btn:hover {
+        background-color: #ffffff;
+        color: #000000;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .waddle .home p {
+        padding: 0 16%;
+    }
+
+    .waddle .home .btn {
+        width: 15%;
+        padding: 1em 0;
+        font-size: 16px;
+    }
+}
+
+
+@media screen and (max-width: 991.9px) {
+    .waddle .home .container-fluid {
+        padding: 2em;
+        margin-top: 15%;
+    }
+}
+
+/* About */
+
+@media (min-width: 1px) {
+    .waddle .about-us {
+        background-color: #3B4086;
+        color: #ffffff;
+        padding: 50px 0;
+    }
+
+    .waddle .about-us .row {
+        padding: 0 2em;
+    }
+
+    .waddle .about-us .row .text-container {
+        margin: auto 0;
+        padding: 2em 0;
+    }
+
+    .waddle .about-us img {
+        width: 100%;
+        height: 100%;
+        max-width: 400px;
+    }
+
+    .waddle .about-us .col-md-5 {
+        text-align: center;
+    }
+}
+
+@media (min-width: 768px) {
+    .waddle .about-us .col-md-5 {
+        text-align: end;
+    }
+}
+
+@media (max-width: 767.9px), (min-width: 992px) and (max-width: 1199.98px) {
+    .waddle .about-us .row {
+        padding: 2em;
+    }
+    .about-us .col-md-5 {
+        margin: 2em 0;
+    }
+}
+
+/* Service */
+
+@media screen and (min-width: 1px){
+    .waddle .service{
+        padding: 50px 0;
+        color: #071136;
+    }
+    
+    .waddle .service img{
+        padding-right: 1em;
+    }
+    
+    .waddle .service .row{ 
+        padding: 0 2em;
+    }
+
+    .waddle .cards-container{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        padding: 0 2em;
+    }
+    
+    .waddle .service .serv-card{
+        border: 2px solid #071136;
+        margin-bottom: 2em;
+        padding: 2em;     
+    }
+    .waddle .service .serv-card .pb-2{
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+    
+}
+
+@media screen and (min-width: 992px){
+    .waddle .cards-container{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+    
+    .waddle .service .serv-card{
+        margin-bottom: 0;
+        width: 30%;
+    }
+    .waddle .service h3{
+        width: 60%;
+    }
+}
+
+/* Carousel */
+
+@media screen and (min-width: 1px){
+    .waddle .carousel.our-team {
+        background-color: #201E5E;
+        color: #ffffff;
+        overflow: hidden;
+        padding: 50px 0;
+        position: unset;
+    }
+    
+    .waddle .carousel.our-team .row{
+        padding: 0 2em;
+    }
+    
+    .waddle .carousel.our-team .row .text-container{
+        margin: auto 0;
+        padding: 2em 0;
+    }
+    
+    .waddle .carousel.our-team .col-md-9 {
+        padding: 0px 22px;
+        margin: auto;
+    }
+    
+    .waddle .carousel-track-container {
+        overflow: hidden;
+        white-space: nowrap;
+    }
+    
+    .waddle .carousel-track {
+        transition: transform 0.5s ease-in-out;
+    }
+    
+    .waddle .team-card {
+        background-color: #3B4086;
+        color: #FFFFFF;
+        padding: 0;
+        margin: 0 2%;
+    }
+    
+    .waddle .team-card img{
+        width: 100%;
+        height: auto;
+        padding-bottom: 1em;
+    }
+    
+    .waddle .team-card p{
+        line-height: unset;
+        font-size: 14px;
+    }
+    
+    .waddle .team-card h3{
+        font-size: 20px;
+    }
+    
+    .waddle .carousel-controls button:first-child {
+        margin-right: 5%;
+    }
+    
+    .waddle .arrow {
+        color: #FFFFFF;
+        background-color: transparent;
+        border: 2px solid #FFFFFF;
+        border-radius: 10px;
+        cursor: pointer;
+        font-size: 24px;
+        width: 47px;
+        height: 45px;
+        transition: background-color 1s cubic-bezier(0.075, 0.82, 0.165, 1), color 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+    }
+    .waddle .arrow:hover, .arrow:focus {
+        background-color: #ffffff;
+        color: #000000;
+    }
+    
+    .waddle .arrow.left-arrow {
+        left: 0;
+    }
+    
+    .waddle .arrow.right-arrow {
+        right: 0;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .waddle .carousel-controls button {
+        width: 60px;
+        height: 60px;
+        font-size: 30px;
+    }
+}
+
+@media (min-width: 768px) {
+    .waddle .col-md-4 {
+        flex: 0 0 auto;
+        width: 29%;
+    }
+}
+
+@media screen and (max-width: 991.9px) {
+    .waddle .carousel-controls {
+        display: flex;
+        justify-content: space-around;
+    }
+    .waddle .carousel .carousel-item .row{
+        justify-content: center;
+    }
+    .waddle .carousel.our-team .col-md-9 {
+        padding: 30px 20px;
+    }
+    
+}
+
+/* Project */
+
+@media screen and (min-width: 1px) {
+    .waddle .project {
+        color: #071136;
+        padding: 50px 0;
+    }
+    
+    .waddle .project .btn {
+        border: 2px solid #071136;
+        color: #071136;
+        font-weight: 500;
+        transition: background-color 1s cubic-bezier(0.075, 0.82, 0.165, 1), color 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+        width: 100%;
+    }
+    
+    .waddle .project .btn:hover {
+        background-color: #071136;
+        color: #ffffff;
+    }
+    
+    .waddle .project .row {
+        padding: 0 2em;
+    }
+    
+    .waddle .project .row .text-container {
+        margin: auto 0;
+        padding: 2em 0;
+    }
+    
+    .waddle .project img {
+        width: 100%;
+        height: 100%;
+        max-width: 400px;
+    }
+    
+    .waddle .project .col-md-5 {
+        text-align: center;
+    }
+}
+
+@media (min-width: 768px) {
+    .waddle .project .col-md-5 {
+        text-align: end;
+    }
+}
+
+@media (max-width: 767.9px), (min-width: 992px) and (max-width: 1199.98px) {
+    .waddle .project .row {
+        padding: 2em;
+    }
+    .waddle .project .col-md-5 {
+        margin: 2em 0;
+    }
+}
+
+
+
+/* Footer */
+
+@media screen and (min-width: 1px) {
+    .waddle .footer {
+      background-color: #1e1c3f;
+      color: #ffffff;
+    }
+  }

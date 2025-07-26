@@ -1,0 +1,269 @@
+<div>
+  <div id="contentToPdf">
+    <section class="content-display">
+      <div class="container-display">
+        <div class="container-fluid">
+          <div class="text-container">
+            <h1>Panel General</h1>
+            <span class="rectangle"></span>
+            <p>
+              Administra y visualiza todos tus datos financieros en un solo lugar.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-display">
+      <div class="container-display">
+        <div class="container-fluid">
+          <div class="text-container">
+            <div class="row align-items-center">
+              <div class="col-12 col-md-12 col-lg-10">
+                <h3>{{ selectedDate }}</h3>
+              </div>
+              <div class="col-12 col-md-12 col-lg-2 text-end">
+                <input type="date" (change)="onDateChange($event)" [value]="currentDateInput" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-display configuration">
+      <div class="row custom-view">
+        <div class="col-12 col-md-12 col-lg-3">
+          <div class="container-display center-view">
+            <div class="row align-items-center">
+              <div class="col-auto">
+                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor"
+                  class="bi bi-arrow-up-short color-ingress" viewBox="0 0 40 40">
+                  <path fill-rule="evenodd"
+                    d="M8 12a.5.5 0 0 0 .5-.5V5.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 5.707V11.5a.5.5 0 0 0 .5.5"
+                    transform="scale(3)" />
+                </svg>
+              </div>
+              <div class="col">
+                <div class="">
+                  <label for="Activos" class="d-block fs-6 text-muted">Activos del mes</label>
+                  <span class="fw-bold fs-5">{{
+                    (monthlyTotalsIngresos[currentMonthYear] || 0).toFixed(2)
+                    }}
+                    CRC</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-12 col-lg-3">
+          <div class="container-display center-view">
+            <div class="row align-items-center">
+              <div class="col-auto">
+                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor"
+                  class="bi bi-arrow-down-short color-expense" viewBox="0 0 40 40">
+                  <path fill-rule="evenodd"
+                    d="M8 4a.5.5 0 0 1 .5.5v5.793l2.146-2.147a.5.5 0 0 1 .708.708l-3 3a.5.5 0 0 1-.708 0l-3-3a.5.5 0 1 1 .708-.708L7.5 10.293V4.5A.5.5 0 0 1 8 4"
+                    transform="scale(3)" />
+                </svg>
+              </div>
+              <div class="col">
+                <div class="">
+                  <label for="Activos" class="d-block fs-6 text-muted">Pasivos del mes</label>
+                  <span class="fw-bold fs-5">{{
+                    (monthlyTotalsGastos[currentMonthYear] || 0).toFixed(2)
+                    }}
+                    CRC</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-12 col-lg-3">
+          <div class="container-display center-view">
+            <div class="row align-items-center">
+              <div class="col-auto">
+                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" viewBox="0 0 40 40"
+                  class="bi bi-graph-up-arrow color-ingress">
+                  <path fill-rule="evenodd"
+                    d="M0 0h1v15h15v1H0zm10 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-1 0V4.9l-3.613 4.417a.5.5 0 0 1-.74.037L7.06 6.767l-3.656 5.027a.5.5 0 0 1-.808-.588l4-5.5a.5.5 0 0 1 .758-.06l2.609 2.61L13.445 4H10.5a.5.5 0 0 1-.5-.5"
+                    transform="scale(2)"></path>
+                </svg>
+              </div>
+              <div class="col">
+                <div class="">
+                  <label for="Activos" class="d-block fs-6 text-muted">Activos totales</label>
+                  <span class="fw-bold fs-5">{{ totalIngresosToShow }}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-12 col-lg-3">
+          <div class="container-display center-view">
+            <div class="row align-items-center">
+              <div class="col-auto">
+                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor"
+                  class="bi bi-graph-down-arrow color-expense" viewBox="0 0 40 40">
+                  <path fill-rule="evenodd"
+                    d="M0 0h1v15h15v1H0zm10 11.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-4a.5.5 0 0 0-1 0v2.6l-3.613-4.417a.5.5 0 0 0-.74-.037L7.06 8.233 3.404 3.206a.5.5 0 0 0-.808.588l4 5.5a.5.5 0 0 0 .758.06l2.609-2.61L13.445 11H10.5a.5.5 0 0 0-.5.5"
+                    transform="scale(2)" />
+                </svg>
+              </div>
+              <div class="col">
+                <div class="">
+                  <label for="Activos" class="d-block fs-6 text-muted">Pasivos totales</label>
+                  <span class="fw-bold fs-5">{{ totalGastosToShow }}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-display configuration">
+      <div class="row">
+        <div class="col-12 col-md-12 col-lg-8">
+          <div class="container-display">
+            <h2>Proyección de Gastos del Mes</h2>
+            <div>
+              Visualiza tus gastos mensuales proyectados con un gráfico de barras
+              detallado y simbología para una mejor comprensión.
+            </div>
+            <p></p>
+            <div class="center-chart">
+              <barLine-horizontal-chart class="w-100 text-center"
+                [selectedMonthYear]="selectedMonthYear"></barLine-horizontal-chart>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-12 col-lg-4">
+          <div class="container-display">
+            <h2>Información del día</h2>
+            <div class="row align-items-center">
+              <div class="col">
+                <div class="">
+                  <label for="Activos" class="d-block fs-6 text-muted">Categoría: Gastos</label>
+                  <span class="fw-bold fs-5">Gastos del día</span>
+                </div>
+              </div>
+              <div class="col-auto">
+                <div class="bg-expense color-expense fw-bold">
+                  - {{ dailyGastosToShow }}
+                </div>
+              </div>
+            </div>
+            <p></p>
+            <div class="row align-items-center">
+              <div class="col">
+                <div class="">
+                  <label for="Activos" class="d-block fs-6 text-muted">Categoría: Ingresos</label>
+                  <span class="fw-bold fs-5">Ingresos del día</span>
+                </div>
+              </div>
+              <div class="col-auto">
+                <div class="bg-ingress color-ingress fw-bold">
+                  + {{ dailyIngresosToShow }}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-display configuration">
+      <div class="container-display">
+        <div class="container-fluid">
+          <div class="row align-items-center">
+            <div class="col-md-12 col-lg-8">
+              <div class="">
+                <label for="Activos" class="d-block fs-4 fw-bold">Simbología</label>
+              </div>
+            </div>
+            <div class="col-md-12 col-lg-2 spacing-simbs">
+              <svg clas xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                class="bi bi-circle-fill color-ingress" viewBox="0 0 30 30">
+                <circle cx="12" cy="12" r="12" />
+              </svg>
+              <span>Ingreso</span>
+            </div>
+            <div class="col-md-12 col-lg-2 spacing-simbs">
+              <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                class="bi bi-circle-fill color-expense" viewBox="0 0 30 30">
+                <circle cx="12" cy="12" r="12" />
+              </svg>
+              <span>Gasto</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="content-display configuration" #chartLineContainer>
+      <div class="row">
+        <div class="col-12 col-md-12 col-lg-12">
+          <div class="container-display">
+            <h2>Historial</h2>
+            <div>
+              Compara tus gastos planeados con los realizados mediante un gráfico
+              detallado, facilitando el análisis de tu historial financiero.
+            </div>
+            <p></p>
+            <div>
+              <div class="center-chart">
+                <app-my-chart class="w-100 text-center" [selectedMonthYear]="selectedMonthYear"></app-my-chart>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <section class="content-display configuration exclude-from-pdf">
+    <div class="container-display">
+      <div class="container-fluid">
+        <div class="row d-flex align-items-center justify-content-between">
+          <div class="col-md-3 d-flex justify-content-center mb-2 mb-md-0">
+            <h4>Descargar Informe</h4>
+          </div>
+          <div class="col-md-6 d-flex justify-content-center">
+            Descarga el informe financiero que tienes en pantalla para revisarlo
+            en detalle en cualquier momento.
+          </div>
+          <div class="btn-container col-md-3 d-flex justify-content-center justify-content-md-end mb-2 mb-md-0">
+            <button class="btn btn-danger bg-sucess mt-2" ngxPrint bodyClass="beacon dashboard"
+              printSectionId="contentToPdf" printTitle="Reporte Financiero" [useExistingCss]="true"
+              styleSheetFile="/styles.css" [previewOnly]="false">
+              Descargar Informe
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="content-display configuration exclude-from-pdf">
+    <div class="container-display">
+      <div class="container-fluid">
+        <div class="row d-flex align-items-center justify-content-between">
+          <div class="col-md-3 d-flex justify-content-center mb-2 mb-md-0">
+            <h4>Gestión de Plantillas</h4>
+          </div>
+          <div class="col-md-6 d-flex justify-content-center">
+            Administra y personaliza tus plantillas financieras para adaptarlas
+            a tus necesidades específicas. Organiza y ajusta tus datos para una
+            gestión eficiente.
+          </div>
+          <div class="btn-container col-md-3 d-flex justify-content-center justify-content-md-end mb-2 mb-md-0">
+            <button class="btn btn-danger bg-danger mt-2" (click)="gestionarPlantillas()">
+              Gestionar Plantillas
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

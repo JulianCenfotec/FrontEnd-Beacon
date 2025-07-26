@@ -1,0 +1,14 @@
+.calendar-option {
+	display: inline-block;
+	cursor: pointer;
+	border-radius: 50%;
+	background-color: #ededed;
+	&:hover {
+		background-color: #c0c0c0;
+	}
+
+	& div {
+		width: 40px;
+		height: 40px;
+	}
+}
